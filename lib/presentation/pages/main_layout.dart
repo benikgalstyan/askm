@@ -1,3 +1,4 @@
+import 'package:askm/gen/assets.gen.dart';
 import 'package:askm/generated/l10n.dart';
 import 'package:askm/presentation/tokens/spacing.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,10 @@ class _MainLayoutState extends State<MainLayout> {
             Text(
               S.of(context).hello_world,
               style: const TextStyle(fontSize: Spacings.xxxL),
+            ),
+            Image.asset(
+              Assets.images.test.keyName,
+              color: Colors.green,
             )
           ],
         ),
