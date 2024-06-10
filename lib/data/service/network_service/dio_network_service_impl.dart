@@ -1,4 +1,3 @@
-import 'package:askm/core/typedefs.dart';
 import 'package:askm/data/service/network_service/network_service.dart';
 import 'package:dio/dio.dart';
 
