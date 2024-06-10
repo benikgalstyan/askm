@@ -12,11 +12,6 @@ class AskmApp extends StatefulWidget {
 
 class _AskmAppState extends State<AskmApp> {
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       localizationsDelegates: const [
