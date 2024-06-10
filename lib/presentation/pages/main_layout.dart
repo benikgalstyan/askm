@@ -1,4 +1,4 @@
-import 'package:askm/gen/assets.gen.dart';
+import 'package:askm/generated/assets/assets.gen.dart';
 import 'package:askm/generated/l10n.dart';
 import 'package:askm/presentation/tokens/spacing.dart';
 import 'package:flutter/material.dart';

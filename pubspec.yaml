@@ -41,3 +41,6 @@ flutter:
 
 flutter_intl:
   enabled: true
+
+flutter_gen:
+  output: lib/generated/assets
