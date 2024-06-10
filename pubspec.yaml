@@ -40,7 +40,7 @@ dependencies:
   dio: ^5.4.3+1  # https://pub.dev/packages/dio
   get_it: ^7.7.0  # https://pub.dev/packages/get_it
   shared_preferences: ^2.2.3  # https://pub.dev/packages/shared_preferences
-  
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
