@@ -20,10 +20,11 @@ class _AskmAppState extends State<AskmApp> {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
+      locale: const Locale('ru'),
+      // TODO(Benik): delete later ru localization
       supportedLocales: S.delegate.supportedLocales,
       theme: ThemeData.dark(),
       home: const MainScreen(),
-      builder: (context, widget) => SafeArea(child: widget ?? const SizedBox()),
     );
   }
 }
