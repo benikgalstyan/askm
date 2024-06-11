@@ -1,6 +1,7 @@
 import 'package:askm/generated/assets/assets.gen.dart';
 import 'package:askm/generated/l10n.dart';
 import 'package:askm/presentation/tokens/spacing.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 class MainLayout extends StatefulWidget {
@@ -25,7 +26,16 @@ class _MainLayoutState extends State<MainLayout> {
             Image.asset(
               Assets.images.test.keyName,
               color: Colors.green,
-            )
+            ),
+            const SizedBox(
+              height: Spacings.xxxL,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                AutoRouter.of(context).pushNamed('/second');
+              },
+              child: const Text('Button'),
+            ),
           ],
         ),
       ),
