@@ -1,5 +1,6 @@
+import 'package:askm/core/router/router.dart';
 import 'package:askm/generated/l10n.dart';
-import 'package:askm/presentation/pages/main_screen.dart';
+import 'package:askm/presentation/pages/main_screen/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -11,9 +12,11 @@ class AskmApp extends StatefulWidget {
 }
 
 class _AskmAppState extends State<AskmApp> {
+  final _router = AppRouter();
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       localizationsDelegates: const [
         S.delegate,
         GlobalMaterialLocalizations.delegate,
@@ -24,7 +27,7 @@ class _AskmAppState extends State<AskmApp> {
       // TODO(Benik): delete later ru localization
       supportedLocales: S.delegate.supportedLocales,
       theme: ThemeData.dark(),
-      home: const MainScreen(),
+      routerConfig: _router.config(),
     );
   }
 }
