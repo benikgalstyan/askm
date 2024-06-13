@@ -21,11 +21,18 @@ class DioNetworkServiceImpl implements NetworkService {
   Future<Response<T>> get<T>(
     String url, {
     required HeaderMap headers,
-  }) =>
-      _dio.get<T>(
+  }) async {
+    try {
+      final response = await _dio.get<T>(
         url,
         options: Options(headers: headers),
       );
+      return response;
+    } catch (e) {
+      print('Error occurred during GET request: $e');
+      rethrow;
+    }
+  }
 
   @override
   Future<Response<T>> post<T>(
