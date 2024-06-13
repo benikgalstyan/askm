@@ -18,8 +18,10 @@ void setupServicesLocator() {
   final localeStorage = SharedPrefsStorageService();
   final networkService = DioNetworkServiceImpl(getDio);
   getIt.registerSingleton<NetworkService>(networkService);
-  getIt.registerSingleton<Repository>(RepositoryImpl(
-    localStorageService: localeStorage,
-    networkService: networkService,
-  ));
+  getIt.registerSingleton<Repository>(
+    RepositoryImpl(
+      localStorageService: localeStorage,
+      networkService: networkService,
+    ),
+  );
 }

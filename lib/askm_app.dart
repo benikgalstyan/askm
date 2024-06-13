@@ -1,6 +1,5 @@
 import 'package:askm/core/router/router.dart';
 import 'package:askm/generated/l10n.dart';
-import 'package:askm/presentation/pages/main_screen/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
