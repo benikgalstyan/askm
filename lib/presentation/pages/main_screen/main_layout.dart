@@ -1,6 +1,7 @@
 import 'package:askm/generated/assets/assets.gen.dart';
 import 'package:askm/generated/l10n.dart';
 import 'package:askm/presentation/pages/main_screen/bloc/main_bloc.dart';
+import 'package:askm/presentation/pages/second_screen/second_screen.dart';
 import 'package:askm/presentation/tokens/spacing.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -41,9 +42,8 @@ class _MainLayoutState extends State<MainLayout> {
             ),
             // Routing test
             ElevatedButton(
-              onPressed: () {
-                AutoRouter.of(context).pushNamed('/second');
-              },
+              onPressed: () =>
+                  AutoRouter.of(context).pushNamed(SecondScreen.nameRoute),
               child: const Text('Button'),
             ),
             Column(
@@ -52,12 +52,15 @@ class _MainLayoutState extends State<MainLayout> {
                 BlocBuilder<MainBloc, MainState>(
                   builder: (BuildContext _, MainState state) {
                     return switch (state) {
-                      MainInitialState() => const Center(child: Text('Loading')),
-                      MainLoadingState() => const Center(child: CircularProgressIndicator()),
+                      MainInitialState() =>
+                        const Center(child: Text('Loading')),
+                      MainLoadingState() =>
+                        const Center(child: CircularProgressIndicator()),
                       MainLoadedState() => SizedBox(
                           height: 200,
                           child: ListView.builder(
-                            itemBuilder: (_, index) => Center(child: Text(state.facts.facts)),
+                            itemBuilder: (_, index) =>
+                                Center(child: Text(state.facts.facts)),
                             itemCount: 1,
                           ),
                         ),

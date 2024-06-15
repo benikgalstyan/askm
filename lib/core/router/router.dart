@@ -8,7 +8,7 @@ part 'router.gr.dart';
 class AppRouter extends _$AppRouter {
   @override
   List<AutoRoute> get routes => [
-        AutoRoute(page: MainRoute.page, path: '/'),
-        AutoRoute(page: SecondRoute.page, path: '/second'),
+        AutoRoute(page: MainRoute.page, path: MainScreen.nameRoute, initial: true),
+        AutoRoute(page: SecondRoute.page, path: SecondScreen.nameRoute),
       ];
 }
