@@ -11,11 +11,16 @@ class DioNetworkServiceImpl implements NetworkService {
   Future<Response<T>> delete<T>(
     String url, {
     required HeaderMap headers,
-  }) =>
-      _dio.delete<T>(
+  }) {
+    try {
+      return _dio.delete<T>(
         url,
         options: Options(headers: headers),
       );
+    } catch (e) {
+      rethrow;
+    }
+  }
 
   @override
   Future<Response<T>> get<T>(
@@ -29,7 +34,6 @@ class DioNetworkServiceImpl implements NetworkService {
       );
       return response;
     } catch (e) {
-      print('Error occurred during GET request: $e');
       rethrow;
     }
   }
@@ -39,22 +43,32 @@ class DioNetworkServiceImpl implements NetworkService {
     String url, {
     required HeaderMap headers,
     required JsonMap body,
-  }) =>
-      _dio.post<T>(
+  }) {
+    try {
+      return _dio.post<T>(
         url,
         data: body,
         options: Options(headers: headers),
       );
+    } catch (e) {
+      rethrow;
+    }
+  }
 
   @override
   Future<Response<T>> put<T>(
     String url, {
     required HeaderMap headers,
     required JsonMap body,
-  }) =>
-      _dio.put<T>(
+  }) {
+    try {
+      return _dio.put<T>(
         url,
         data: body,
         options: Options(headers: headers),
       );
+    } catch (e) {
+      rethrow;
+    }
+  }
 }

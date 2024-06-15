@@ -1,4 +1,4 @@
-import 'package:askm/core/templates/error_parser.dart';
+import 'package:askm/data/service/network_service/error_parser.dart';
 import 'package:askm/data/repository/repository.dart';
 import 'package:askm/data/repository/repository_impl.dart';
 import 'package:askm/data/service/local_storage/shared_pref_storage_service.dart';
