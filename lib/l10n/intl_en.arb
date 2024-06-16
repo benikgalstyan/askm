@@ -1,5 +1,10 @@
 {
   "hello_world": "Hello World",
   "error": "Error",
-  "loading": "Loading"
+  "loading": "Loading",
+  "askm": "ASKM",
+  "whether": "Whether you're on the go or in the",
+  "comfort": "comfort of your own space",
+  "continueWithGoogle": "Continue with Google",
+  "continueWithEmail": "Continue with email"
 }

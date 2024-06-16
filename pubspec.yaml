@@ -7,8 +7,8 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  flutter: 3.19.2
-  sdk: 3.3.0
+  sdk: ">=3.3.0 <4.0.0"
+
 
 dependencies:
   flutter:
@@ -30,14 +30,17 @@ dependencies:
   flutter_bloc: ^8.1.6
   # https://pub.dev/packages/logger
   logger: ^2.3.0
+  # https://pub.dev/packages/flutter_svg
+  flutter_svg: ^2.0.10+1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_gen_runner:
-  build_runner:
+  flutter_gen_runner: ^5.5.0+1
+  build_runner: ^2.4.9
   flutter_lints: ^3.0.0
   auto_route_generator: ^8.0.0
+  flutter_gen: ^5.5.0+1
 
 flutter:
   generate: true

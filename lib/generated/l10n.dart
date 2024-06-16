@@ -79,6 +79,56 @@ class S {
       args: [],
     );
   }
+
+  /// `ASKM`
+  String get askm {
+    return Intl.message(
+      'ASKM',
+      name: 'askm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Whether you're on the go or in the`
+  String get whether {
+    return Intl.message(
+      'Whether you\'re on the go or in the',
+      name: 'whether',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `comfort of your own space`
+  String get comfort {
+    return Intl.message(
+      'comfort of your own space',
+      name: 'comfort',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue with Google`
+  String get continueWithGoogle {
+    return Intl.message(
+      'Continue with Google',
+      name: 'continueWithGoogle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue with email`
+  String get continueWithEmail {
+    return Intl.message(
+      'Continue with email',
+      name: 'continueWithEmail',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -87,7 +137,6 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
-      Locale.fromSubtags(languageCode: 'ru'),
     ];
   }
 
