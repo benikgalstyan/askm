@@ -3,8 +3,7 @@ import 'package:askm/generated/assets/assets.gen.dart';
 import 'package:askm/presentation/tokens/spacing.dart';
 import 'package:askm/presentation/widgets/app_logo.dart';
 import 'package:askm/presentation/widgets/background_widget.dart';
-import 'package:askm/presentation/widgets/custom_button.dart';
-import 'package:askm/presentation/widgets/info_widget.dart';
+import 'package:askm/presentation/widgets/social_form_widget.dart';
 import 'package:flutter/material.dart';
 
 class SocialSignUpLayout extends StatefulWidget {
@@ -26,22 +25,20 @@ class _SocialSignUpLayoutState extends State<SocialSignUpLayout> {
           child: Column(
             children: [
               const Spacer(flex: upperFlex),
-              const AppLogo(),
-              const InfoTextsWidget(),
-              const SizedBox(height: Spacings.xxxxL),
-              ASKMElevatedButton.social(
-                onPressed: () {
-                  // TODO(Benik): implement google sign up
-                },
-                text: context.s.continueWithGoogle,
+              AppLogo(
+                description: [
+                  context.s.whether,
+                  context.s.comfort,
+                ],
               ),
-              const SizedBox(height: Spacings.L),
-              ASKMElevatedButton.primary(
-                onPressed: () {
-                  // TODO(George): implement email sign up
+              const SizedBox(height: Spacings.xxxxL),
+              SocialFormWidget(
+                onGooglePressed: () {
+                  // TODO(Benik): Implement Google sign-up logic
                 },
-                text: context.s.continueWithEmail,
-                isEnabled: false,
+                onEmailPressed: () {
+                  // TODO(Benik): Implement email sign-up logic
+                },
               ),
               const Spacer(),
             ],
