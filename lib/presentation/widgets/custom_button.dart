@@ -1,16 +1,15 @@
-import 'package:askm/core/theme/palette/light_palette.dart';
 import 'package:askm/core/theme/text_styles.dart';
-import 'package:askm/generated/assets/assets.gen.dart';
 import 'package:askm/presentation/tokens/spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+enum ButtonType { primary, secondary, social }
+
 class ASKMElevatedButton extends StatelessWidget {
   const ASKMElevatedButton._({
-    this.icon,
+    this.type,
+    this.iconPath,
     this.isEnabled,
-    this.buttonColor,
-    this.textButtonColor,
     required this.text,
     required this.onPressed,
   });
@@ -19,43 +18,43 @@ class ASKMElevatedButton extends StatelessWidget {
     required String text,
     required bool isEnabled,
     required VoidCallback onPressed,
+    required ButtonType type,
   }) =>
       ASKMElevatedButton._(
         text: text,
         onPressed: onPressed,
-        buttonColor: isEnabled ? LightPalette.primaryButtonColor : LightPalette.disabledButtonColor,
-        textButtonColor: isEnabled ? LightPalette.whiteColor : LightPalette.disabledTextButtonColor,
         isEnabled: isEnabled,
+        type: ButtonType.primary,
       );
 
-  factory ASKMElevatedButton.secondaryWithIcon({
+  factory ASKMElevatedButton.social({
     required String text,
     required VoidCallback onPressed,
+    required ButtonType type,
+    required String iconPath,
   }) =>
       ASKMElevatedButton._(
         text: text,
         onPressed: onPressed,
-        buttonColor: LightPalette.whiteColor,
-        textButtonColor: LightPalette.blackColor,
-        icon: SvgPicture.asset(Assets.images.googleIcon),
+        type: ButtonType.social,
+        iconPath: iconPath,
       );
 
   factory ASKMElevatedButton.secondary({
     required String text,
     required VoidCallback onPressed,
+    required ButtonType type,
   }) =>
       ASKMElevatedButton._(
         text: text,
+        type: ButtonType.secondary,
         onPressed: onPressed,
-        textButtonColor: LightPalette.whiteColor,
-        buttonColor: LightPalette.secondaryButtonColor,
       );
 
   final String text;
-  final Widget? icon;
   final bool? isEnabled;
-  final Color? buttonColor;
-  final Color? textButtonColor;
+  final String? iconPath;
+  final ButtonType? type;
   final VoidCallback? onPressed;
 
   static const elevation = 0.0;
@@ -65,6 +64,28 @@ class ASKMElevatedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final buttonColor = switch (type) {
+      ButtonType.primary => Colors.green,
+      ButtonType.secondary => Colors.white,
+      ButtonType.social => Colors.white,
+      _ => Colors.green,
+    };
+
+    final textButtonColor = switch (type) {
+      ButtonType.primary => Colors.white,
+      ButtonType.secondary => Colors.black,
+      ButtonType.social => Colors.black,
+      _ => Colors.white,
+    };
+
+    Widget maybeGetIcon(String? iconPath) {
+      if (iconPath != null) {
+        return SvgPicture.asset(iconPath);
+      } else {
+        return const SizedBox.shrink();
+      }
+    }
+
     return SizedBox(
       height: defaultHeight,
       width: defaultWidth,
@@ -82,7 +103,7 @@ class ASKMElevatedButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            icon ?? const SizedBox(),
+            maybeGetIcon(iconPath),
             const SizedBox(width: Spacings.S),
             Text(
               text,

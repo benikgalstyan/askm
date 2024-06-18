@@ -29,18 +29,19 @@ class _SocialSignUpLayoutState extends State<SocialSignUpLayout> {
               const AppLogo(),
               const InfoTextsWidget(),
               const SizedBox(height: Spacings.xxxxL),
-              ASKMElevatedButton.secondaryWithIcon(
+              ASKMElevatedButton.social(
                 onPressed: () {
                   // TODO(Benik): implement google sign up
                 },
                 text: context.s.continueWithGoogle,
               ),
               const SizedBox(height: Spacings.L),
-              ASKMElevatedButton.secondary(
+              ASKMElevatedButton.primary(
                 onPressed: () {
-                  // TODO(Benik): implement email sign up
+                  // TODO(George): implement email sign up
                 },
                 text: context.s.continueWithEmail,
+                isEnabled: false,
               ),
               const Spacer(),
             ],
