@@ -14,10 +14,11 @@ class BackgroundWidget extends StatelessWidget {
     return Stack(
       children: [
         Image.asset(
-          Assets.images.backgroundImage.keyName,
           fit: BoxFit.cover,
           width: double.infinity,
-          height: double.infinity,        ),
+          height: double.infinity,
+          Assets.images.backgroundImage.keyName,
+        ),
         child,
       ],
     );
