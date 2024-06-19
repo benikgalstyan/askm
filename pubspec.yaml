@@ -7,8 +7,8 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  flutter: 3.19.2
-  sdk: 3.3.0
+  flutter: "3.19.2"
+  sdk: ">=3.3.0 <4.0.0"
 
 
 dependencies:
@@ -48,6 +48,16 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+  fonts:
+    - family: LexendMega
+      fonts:
+        - asset: assets/fonts/LexendMega-Regular.ttf
+    - family: WorkSans
+      fonts:
+        - asset: assets/fonts/WorkSans-Regular.ttf
+        - asset: assets/fonts/WorkSans-Medium.ttf
+          weight: 500
+
 
 flutter_intl:
   enabled: true
@@ -64,4 +74,3 @@ flutter_native_splash:
   android_12:
     color: "#2E6653"
     image: "assets/images/splash_screen/splash_screen_12+.png"
-
