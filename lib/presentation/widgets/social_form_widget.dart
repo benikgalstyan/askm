@@ -9,10 +9,14 @@ class SocialFormWidget extends StatelessWidget {
     super.key,
     this.onEmailPressed,
     this.onGooglePressed,
+    required this.isEmailButtonEnabled,
+    required this.isGoogleButtonEnabled,
   });
 
   final VoidCallback? onEmailPressed;
   final VoidCallback? onGooglePressed;
+  final bool isGoogleButtonEnabled;
+  final bool isEmailButtonEnabled;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +24,7 @@ class SocialFormWidget extends StatelessWidget {
       children: [
         if (onGooglePressed != null)
           ASKMElevatedButton.social(
-            isEnabled: true,
+            isEnabled: isGoogleButtonEnabled,
             onPressed: onGooglePressed!,
             text: context.s.continueWithGoogle,
             iconPath: Assets.images.googleIcon,
@@ -28,7 +32,7 @@ class SocialFormWidget extends StatelessWidget {
         const SizedBox(height: Spacings.L),
         if (onEmailPressed != null)
           ASKMElevatedButton.secondary(
-            isEnabled: true,
+            isEnabled: isEmailButtonEnabled,
             onPressed: onEmailPressed!,
             text: context.s.continueWithEmail,
           ),
