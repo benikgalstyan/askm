@@ -40,7 +40,7 @@ class _SocialSignUpLayoutState extends State<SocialSignUpLayout> {
                   // TODO(Benik): Implement email sign-up logic
                 },
                 isEmailButtonEnabled: true,
-                isGoogleButtonEnabled: false,
+                isGoogleButtonEnabled: true,
               ),
               const Spacer(),
             ],
