@@ -7,8 +7,10 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  flutter: 3.19.2
-  sdk: 3.3.0
+  flutter: "3.19.2"
+  sdk: ">=3.3.0 <4.0.0"
+
+
 
 dependencies:
   flutter:
@@ -30,14 +32,19 @@ dependencies:
   flutter_bloc: ^8.1.6
   # https://pub.dev/packages/logger
   logger: ^2.3.0
+  # https://pub.dev/packages/flutter_svg
+  flutter_svg: ^2.0.10+1
+  # https://pub.dev/packages/flutter_launcher_icons
+  flutter_launcher_icons: ^0.13.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_gen_runner:
-  build_runner:
+  flutter_gen_runner: ^5.5.0+1
+  build_runner: ^2.4.9
   flutter_lints: ^3.0.0
   auto_route_generator: ^8.0.0
+  flutter_gen: ^5.5.0+1
 
 flutter:
   generate: true
@@ -51,13 +58,22 @@ flutter_intl:
 flutter_gen:
   output: lib/generated/assets
 
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/app_icon/app_icon.png"
+  adaptive_icon_foreground: "assets/images/app_icon/app_icon_foreground.png"
+  adaptive_icon_background: "#000000"
+  min_sdk_android: 21
+
+
 flutter_native_splash:
   android: true
   ios: true
   web: false
   image: "assets/images/splash_screen/splash_screen.png"
-  color: "#2E6653"
+  color: "#1E1C1C"
   android_12:
-    color: "#2E6653"
+    color: "#1E1C1C"
     image: "assets/images/splash_screen/splash_screen_12+.png"
 
