@@ -14,37 +14,29 @@ class SocialSignUpLayout extends StatefulWidget {
 }
 
 class _SocialSignUpLayoutState extends State<SocialSignUpLayout> {
-  static const upperFlex = 5;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: BackgroundWidget(
-        backgroundImage: Assets.images.backgroundImage.keyName,
-        child: Center(
-          child: Column(
-            children: [
-              const Spacer(flex: upperFlex),
-              AppLogo(
-                description: [
-                  context.s.whether,
-                  context.s.comfort,
-                ],
-              ),
-              const SizedBox(height: Spacings.xxxxL),
-              SocialAuthFormWidget(
-                onGooglePressed: () {
-                  // TODO(Benik): Implement Google sign-up logic
-                },
-                onEmailPressed: () {
-                  // TODO(Benik): Implement email sign-up logic
-                },
-                isEmailButtonEnabled: true,
-                isGoogleButtonEnabled: true,
-              ),
-              const Spacer(),
-            ],
-          ),
+        backgroundImage: Assets.images.backgroundImage.path,
+        child: Column(
+          children: [
+            const Spacer(),
+            AppLogo(
+              description: context.s
+                  .whether_you_re_on_the_go_or_in_the_comfort_of_your_own_space,
+            ),
+            const SizedBox(height: Spacings.xxxxL),
+            SocialAuthFormWidget(
+              onGooglePressed: () {
+                // TODO(Benik): Implement Google sign-up logic
+              },
+              onEmailPressed: () {
+                // TODO(Benik): Implement email sign-up logic
+              },
+            ),
+            Spacings.spacer32,
+          ],
         ),
       ),
     );

@@ -13,12 +13,12 @@ class SocialAuthFormWidget extends StatelessWidget {
     super.key,
     this.onEmailPressed,
     this.onGooglePressed,
-    required this.isEmailButtonEnabled,
-    required this.isGoogleButtonEnabled,
+    this.isEmailButtonEnabled,
+    this.isGoogleButtonEnabled,
   });
 
-  final bool isGoogleButtonEnabled;
-  final bool isEmailButtonEnabled;
+  final bool? isGoogleButtonEnabled;
+  final bool? isEmailButtonEnabled;
 
   final VoidCallback? onEmailPressed;
   final VoidCallback? onGooglePressed;
@@ -40,19 +40,19 @@ class SocialAuthFormWidget extends StatelessWidget {
               return Padding(
                 padding: _defaultTopPadding,
                 child: ASKMElevatedButton.social(
-                  isEnabled: isGoogleButtonEnabled,
                   onPressed: onGooglePressed!,
-                  text: context.s.continueWithGoogle,
+                  text: context.s.continue_with_google,
                   iconPath: Assets.images.googleIcon,
+                  isEnabled: isGoogleButtonEnabled ?? true,
                 ),
               );
             }
           case AuthMethods.email:
             if (isEmailAuthEnabled) {
               return ASKMElevatedButton.secondary(
-                isEnabled: isEmailButtonEnabled,
                 onPressed: onEmailPressed!,
-                text: context.s.continueWithEmail,
+                text: context.s.continue_with_email,
+                isEnabled: isEmailButtonEnabled ?? true,
               );
             }
         }

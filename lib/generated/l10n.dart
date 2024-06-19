@@ -111,20 +111,30 @@ class S {
   }
 
   /// `Continue with Google`
-  String get continueWithGoogle {
+  String get continue_with_google {
     return Intl.message(
       'Continue with Google',
-      name: 'continueWithGoogle',
+      name: 'continue_with_google',
       desc: '',
       args: [],
     );
   }
 
   /// `Continue with email`
-  String get continueWithEmail {
+  String get continue_with_email {
     return Intl.message(
       'Continue with email',
-      name: 'continueWithEmail',
+      name: 'continue_with_email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Whether you're on the go or in the comfort of your own space`
+  String get whether_you_re_on_the_go_or_in_the_comfort_of_your_own_space {
+    return Intl.message(
+      'Whether you\'re on the go or in the comfort of your own space',
+      name: 'whether_you_re_on_the_go_or_in_the_comfort_of_your_own_space',
       desc: '',
       args: [],
     );

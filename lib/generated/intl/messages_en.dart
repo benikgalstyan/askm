@@ -25,14 +25,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "askm": MessageLookupByLibrary.simpleMessage("ASKM"),
         "comfort":
             MessageLookupByLibrary.simpleMessage("comfort of your own space"),
-        "continueWithEmail":
+        "continue_with_email":
             MessageLookupByLibrary.simpleMessage("Continue with email"),
-        "continueWithGoogle":
+        "continue_with_google":
             MessageLookupByLibrary.simpleMessage("Continue with Google"),
         "error": MessageLookupByLibrary.simpleMessage("Error"),
         "hello_world": MessageLookupByLibrary.simpleMessage("Hello World"),
         "loading": MessageLookupByLibrary.simpleMessage("Loading"),
         "whether": MessageLookupByLibrary.simpleMessage(
-            "Whether you\'re on the go or in the")
+            "Whether you\'re on the go or in the"),
+        "whether_you_re_on_the_go_or_in_the_comfort_of_your_own_space":
+            MessageLookupByLibrary.simpleMessage(
+                "Whether you\'re on the go or in the comfort of your own space")
       };
 }
