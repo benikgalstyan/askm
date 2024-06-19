@@ -1,7 +1,7 @@
 import 'package:askm/core/context_extensions.dart';
 import 'package:askm/generated/assets/assets.gen.dart';
 import 'package:askm/presentation/pages/main_screen/bloc/main_bloc.dart';
-import 'package:askm/presentation/pages/second_screen/second_screen.dart';
+import 'package:askm/presentation/pages/social_sign_up_screen/social_sign_up_screen.dart';
 import 'package:askm/presentation/tokens/spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -41,7 +41,7 @@ class _MainLayoutState extends State<MainLayout> {
             ),
             // Routing test
             ElevatedButton(
-              onPressed: () => context.r.pushNamed(SecondScreen.nameRoute),
+              onPressed: () => context.r.pushNamed(SocialSignUpScreen.nameRoute),
               child: const Text('Button'),
             ),
             Column(
