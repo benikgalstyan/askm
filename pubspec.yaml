@@ -33,6 +33,8 @@ dependencies:
   logger: ^2.3.0
   # https://pub.dev/packages/flutter_svg
   flutter_svg: ^2.0.10+1
+  # https://pub.dev/packages/collection
+  collection: ^1.18.0
 
 dev_dependencies:
   flutter_test:
