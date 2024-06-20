@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "622476582603",
+    "project_id": "askm-fc980",
+    "storage_bucket": "askm-fc980.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:622476582603:android:a4ee58f53c0eba774f454e",
+        "android_client_info": {
+          "package_name": "com.example.askm"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5rg1h-JpoOkdZFxn-ahkap_CrMlB2CIs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
