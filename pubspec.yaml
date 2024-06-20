@@ -35,6 +35,8 @@ dependencies:
   flutter_svg: ^2.0.10+1
   # https://pub.dev/packages/collection
   collection: ^1.18.0
+  # https://pub.dev/packages/firebase_core
+  firebase_core: ^3.1.0
 
 dev_dependencies:
   flutter_test:
