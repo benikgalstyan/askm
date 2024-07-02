@@ -16,17 +16,24 @@ class $AssetsImagesGen {
   AssetGenImage get backgroundImage =>
       const AssetGenImage('assets/images/background_image.png');
 
+  /// File path: assets/images/failure.svg
+  String get failure => 'assets/images/failure.svg';
+
   /// File path: assets/images/google_icon.svg
   String get googleIcon => 'assets/images/google_icon.svg';
 
   /// File path: assets/images/logo.svg
   String get logo => 'assets/images/logo.svg';
 
+  /// File path: assets/images/mail.svg
+  String get mail => 'assets/images/mail.svg';
+
   /// File path: assets/images/test.png
   AssetGenImage get test => const AssetGenImage('assets/images/test.png');
 
   /// List of all assets
-  List<dynamic> get values => [backgroundImage, googleIcon, logo, test];
+  List<dynamic> get values =>
+      [backgroundImage, failure, googleIcon, logo, mail, test];
 }
 
 class Assets {

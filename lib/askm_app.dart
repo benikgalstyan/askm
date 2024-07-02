@@ -26,7 +26,7 @@ class _AskmAppState extends State<AskmApp> {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: S.delegate.supportedLocales,
-      theme: ThemeData.dark(),
+      theme: ThemeData.light(),
       routerConfig: _router.config(),
       builder: (context, router) {
         return AppRouterHolder(
