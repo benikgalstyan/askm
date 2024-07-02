@@ -139,6 +139,56 @@ class S {
       args: [],
     );
   }
+
+  /// `Ooops!`
+  String get ooops {
+    return Intl.message(
+      'Ooops!',
+      name: 'ooops',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Something went wrong. Try again later`
+  String get smthWentWrong {
+    return Intl.message(
+      'Something went wrong. Try again later',
+      name: 'smthWentWrong',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Okay`
+  String get okay {
+    return Intl.message(
+      'Okay',
+      name: 'okay',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Check your email`
+  String get checkYourEmail {
+    return Intl.message(
+      'Check your email',
+      name: 'checkYourEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `A sign in link has been sent to your email adress`
+  String get signInLink {
+    return Intl.message(
+      'A sign in link has been sent to your email adress',
+      name: 'signInLink',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

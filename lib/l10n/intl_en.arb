@@ -7,5 +7,10 @@
   "comfort": "comfort of your own space",
   "continue_with_google": "Continue with Google",
   "continue_with_email": "Continue with email",
-  "whether_you_re_on_the_go_or_in_the_comfort_of_your_own_space": "Whether you're on the go or in the comfort of your own space"
+  "whether_you_re_on_the_go_or_in_the_comfort_of_your_own_space": "Whether you're on the go or in the comfort of your own space",
+  "ooops": "Ooops!",
+  "smthWentWrong": "Something went wrong. Try again later",
+  "okay": "Okay",
+  "checkYourEmail": "Check your email",
+  "signInLink": "A sign in link has been sent to your email adress"
 }
