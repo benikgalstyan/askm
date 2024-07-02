@@ -10,9 +10,22 @@ class TextStyles {
     fontFamily: FontFamily.lexendMega,
   );
 
+  static const TextStyle headline2 = TextStyle(
+    fontSize: Spacings.xL,
+    color: LightPalette.blackColor,
+    fontFamily: FontFamily.workSans,
+    fontWeight: FontWeight.w500,
+  );
+
   static const TextStyle bodyText1 = TextStyle(
     fontSize: Spacings.L,
     color: LightPalette.whiteColor,
+    fontFamily: FontFamily.workSans,
+  );
+
+  static const TextStyle bodyText2 = TextStyle(
+    fontSize: Spacings.L,
+    color: LightPalette.blackColor,
     fontFamily: FontFamily.workSans,
   );
   static const TextStyle buttonText1 = TextStyle(
