@@ -1,4 +1,5 @@
 import 'package:askm/presentation/pages/main_screen/main_screen.dart';
+import 'package:askm/presentation/pages/sign_up_screen/sign_up_screen.dart';
 import 'package:askm/presentation/pages/social_sign_up_screen/social_sign_up_screen.dart';
 import 'package:auto_route/auto_route.dart';
 
@@ -10,5 +11,6 @@ class AppRouter extends _$AppRouter {
   List<AutoRoute> get routes => [
         AutoRoute(page: MainRoute.page, path: MainScreen.nameRoute, initial: true),
         AutoRoute(page: SocialSignUpRoute.page, path: SocialSignUpScreen.nameRoute),
+        AutoRoute(page: SignUpRoute.page, path: SignUpScreen.nameRoute),
       ];
 }

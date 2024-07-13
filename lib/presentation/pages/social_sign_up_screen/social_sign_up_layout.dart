@@ -1,5 +1,6 @@
 import 'package:askm/core/context_extensions.dart';
 import 'package:askm/generated/assets/assets.gen.dart';
+import 'package:askm/presentation/pages/sign_up_screen/sign_up_screen.dart';
 import 'package:askm/presentation/tokens/spacing.dart';
 import 'package:askm/presentation/widgets/app_logo.dart';
 import 'package:askm/presentation/widgets/background_widget.dart';
@@ -27,6 +28,7 @@ class SocialSignUpLayout extends StatelessWidget {
                 },
                 onEmailPressed: () {
                   // TODO(Benik): Implement email sign-up logic
+                   context.r.pushNamed(SignUpScreen.nameRoute);
                 },
               ),
               Spacings.spacer32,
