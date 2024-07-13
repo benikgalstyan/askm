@@ -4,8 +4,9 @@ import 'package:askm/presentation/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
 enum AuthMethods {
-  email,
   google,
+  email,
+
 }
 
 class SocialAuthFormWidget extends StatelessWidget {
@@ -37,22 +38,22 @@ class SocialAuthFormWidget extends StatelessWidget {
         switch (method) {
           case AuthMethods.google:
             if (isGoogleAuthEnabled) {
-              return Padding(
-                padding: _defaultTopPadding,
-                child: ASKMElevatedButton.social(
-                  onPressed: onGooglePressed!,
-                  text: context.s.continue_with_google,
-                  iconPath: Assets.images.googleIcon,
-                  isEnabled: isGoogleButtonEnabled ?? true,
-                ),
+              return ASKMElevatedButton.social(
+                onPressed: onGooglePressed!,
+                text: context.s.continue_with_google,
+                iconPath: Assets.images.googleIcon,
+                isEnabled: isGoogleButtonEnabled ?? true,
               );
             }
           case AuthMethods.email:
             if (isEmailAuthEnabled) {
-              return ASKMElevatedButton.secondary(
-                onPressed: onEmailPressed!,
-                text: context.s.continue_with_email,
-                isEnabled: isEmailButtonEnabled ?? true,
+              return Padding(
+                padding: _defaultTopPadding,
+                child: ASKMElevatedButton.secondary(
+                  onPressed: onEmailPressed!,
+                  text: context.s.continue_with_email,
+                  isEnabled: isEmailButtonEnabled ?? true,
+                ),
               );
             }
         }
