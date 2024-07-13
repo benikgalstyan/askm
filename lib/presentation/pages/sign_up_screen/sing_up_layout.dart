@@ -14,11 +14,11 @@ class SignUpLayout extends StatefulWidget {
 class _SignUpLayoutState extends State<SignUpLayout> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
-        child: Padding(
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        body: Padding(
           padding: Spacings.paddingH20,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
