@@ -22,8 +22,27 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "alreadyHaveAnAccount":
+            MessageLookupByLibrary.simpleMessage("Already have an account?"),
+        "askm": MessageLookupByLibrary.simpleMessage("ASKM"),
+        "comfort":
+            MessageLookupByLibrary.simpleMessage("comfort of your own space"),
+        "continueButton": MessageLookupByLibrary.simpleMessage("Continue"),
+        "continue_with_email":
+            MessageLookupByLibrary.simpleMessage("Continue with email"),
+        "continue_with_google":
+            MessageLookupByLibrary.simpleMessage("Continue with Google"),
+        "createAccount": MessageLookupByLibrary.simpleMessage("Create account"),
+        "email": MessageLookupByLibrary.simpleMessage("Email"),
         "error": MessageLookupByLibrary.simpleMessage("Error"),
         "hello_world": MessageLookupByLibrary.simpleMessage("Hello World"),
-        "loading": MessageLookupByLibrary.simpleMessage("Loading")
+        "loading": MessageLookupByLibrary.simpleMessage("Loading"),
+        "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "signIn": MessageLookupByLibrary.simpleMessage("Sign in"),
+        "whether": MessageLookupByLibrary.simpleMessage(
+            "Whether you\'re on the go or in the"),
+        "whether_you_re_on_the_go_or_in_the_comfort_of_your_own_space":
+            MessageLookupByLibrary.simpleMessage(
+                "Whether you\'re on the go or in the comfort of your own space")
       };
 }

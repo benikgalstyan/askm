@@ -21,10 +21,16 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const MainScreen(),
       );
     },
-    SecondRoute.name: (routeData) {
+    SignUpRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const SecondScreen(),
+        child: const SignUpScreen(),
+      );
+    },
+    SocialSignUpRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const SocialSignUpScreen(),
       );
     },
   };
@@ -45,15 +51,29 @@ class MainRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [SecondScreen]
-class SecondRoute extends PageRouteInfo<void> {
-  const SecondRoute({List<PageRouteInfo>? children})
+/// [SignUpScreen]
+class SignUpRoute extends PageRouteInfo<void> {
+  const SignUpRoute({List<PageRouteInfo>? children})
       : super(
-          SecondRoute.name,
+          SignUpRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'SecondRoute';
+  static const String name = 'SignUpRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [SocialSignUpScreen]
+class SocialSignUpRoute extends PageRouteInfo<void> {
+  const SocialSignUpRoute({List<PageRouteInfo>? children})
+      : super(
+          SocialSignUpRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SocialSignUpRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

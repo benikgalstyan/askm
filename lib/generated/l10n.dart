@@ -79,6 +79,126 @@ class S {
       args: [],
     );
   }
+
+  /// `ASKM`
+  String get askm {
+    return Intl.message(
+      'ASKM',
+      name: 'askm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Whether you're on the go or in the`
+  String get whether {
+    return Intl.message(
+      'Whether you\'re on the go or in the',
+      name: 'whether',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `comfort of your own space`
+  String get comfort {
+    return Intl.message(
+      'comfort of your own space',
+      name: 'comfort',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue with Google`
+  String get continue_with_google {
+    return Intl.message(
+      'Continue with Google',
+      name: 'continue_with_google',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue with email`
+  String get continue_with_email {
+    return Intl.message(
+      'Continue with email',
+      name: 'continue_with_email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Whether you're on the go or in the comfort of your own space`
+  String get whether_you_re_on_the_go_or_in_the_comfort_of_your_own_space {
+    return Intl.message(
+      'Whether you\'re on the go or in the comfort of your own space',
+      name: 'whether_you_re_on_the_go_or_in_the_comfort_of_your_own_space',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue`
+  String get continueButton {
+    return Intl.message(
+      'Continue',
+      name: 'continueButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email`
+  String get email {
+    return Intl.message(
+      'Email',
+      name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get password {
+    return Intl.message(
+      'Password',
+      name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Already have an account?`
+  String get alreadyHaveAnAccount {
+    return Intl.message(
+      'Already have an account?',
+      name: 'alreadyHaveAnAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign in`
+  String get signIn {
+    return Intl.message(
+      'Sign in',
+      name: 'signIn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create account`
+  String get createAccount {
+    return Intl.message(
+      'Create account',
+      name: 'createAccount',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -87,7 +207,6 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
-      Locale.fromSubtags(languageCode: 'ru'),
     ];
   }
 

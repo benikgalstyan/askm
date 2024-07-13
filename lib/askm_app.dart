@@ -1,4 +1,4 @@
-import 'package:askm/core/logger/conposite_logger_holder.dart';
+import 'package:askm/core/logger/composite_logger_holder.dart';
 import 'package:askm/core/router/app_router_holder.dart';
 import 'package:askm/core/router/router.dart';
 import 'package:askm/generated/l10n.dart';
@@ -25,10 +25,8 @@ class _AskmAppState extends State<AskmApp> {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      locale: const Locale('ru'),
-      // TODO(Benik): delete later ru localization
       supportedLocales: S.delegate.supportedLocales,
-      theme: ThemeData.dark(),
+      theme: ThemeData.light(),
       routerConfig: _router.config(),
       builder: (context, router) {
         return AppRouterHolder(
