@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "751449839823",
+    "project_id": "askm-747b8",
+    "storage_bucket": "askm-747b8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:751449839823:android:c421ffef24f01d57887fba",
+        "android_client_info": {
+          "package_name": "com.example.askm"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuUPdpqxmEBln5mAfb3TKyNZ_3N1ta1qQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
