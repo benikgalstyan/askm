@@ -9,8 +9,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-
-
 class SignUpForm extends ConsumerStatefulWidget {
   const SignUpForm({
     super.key,
@@ -47,16 +45,16 @@ class _SignUpFormState extends ConsumerState<SignUpForm> {
   }
 
   void _updateEmail() {
-    ref.read(emailProvider.notifier).state = _email.text;
+    ref.read(emailControllerProvider.notifier).email = _email.text;
   }
 
   void _updatePassword() {
-    ref.read(passwordProvider.notifier).state = _pass.text;
+    ref.read(passwordControllerProvider.notifier).password = _pass.text;
   }
 
   @override
   Widget build(BuildContext context) {
-    final isButtonEnabled = ref.watch(isButtonEnabledProvider);
+    final isButtonEnabled = ref.watch(isSignUpButtonEnabledProvider);
     return Form(
       key: formKey,
       child: Expanded(
