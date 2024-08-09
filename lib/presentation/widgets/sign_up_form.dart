@@ -2,12 +2,14 @@ import 'package:askm/core/context_extensions.dart';
 import 'package:askm/core/templates/form_validators.dart';
 import 'package:askm/core/theme/palette/light_palette.dart';
 import 'package:askm/core/theme/text_styles.dart';
+import 'package:askm/presentation/pages/sign_up_screen/sign_up_providers.dart';
 import 'package:askm/presentation/widgets/custom_button.dart';
 import 'package:askm/presentation/widgets/input_field_widget.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class SignUpForm extends StatefulWidget {
+class SignUpForm extends ConsumerStatefulWidget {
   const SignUpForm({
     super.key,
     required this.onSignUpButtonPressed,
@@ -16,11 +18,10 @@ class SignUpForm extends StatefulWidget {
   final void Function(String email, String password) onSignUpButtonPressed;
 
   @override
-  State<SignUpForm> createState() => _MyLogFormWidgetState();
+  ConsumerState<SignUpForm> createState() => _SignUpFormState();
 }
 
-class _MyLogFormWidgetState extends State<SignUpForm> {
-  bool isButtonEnabled = false;
+class _SignUpFormState extends ConsumerState<SignUpForm> {
   final _pass = TextEditingController();
   final _email = TextEditingController();
   final formKey = GlobalKey<FormState>();
@@ -30,8 +31,8 @@ class _MyLogFormWidgetState extends State<SignUpForm> {
   @override
   void initState() {
     super.initState();
-    _pass.addListener(_updateButtonState);
-    _email.addListener(_updateButtonState);
+    _pass.addListener(_updatePassword);
+    _email.addListener(_updateEmail);
   }
 
   @override
@@ -39,18 +40,21 @@ class _MyLogFormWidgetState extends State<SignUpForm> {
     _pass.dispose();
     _email.dispose();
     super.dispose();
-    _pass.removeListener(_updateButtonState);
-    _email.removeListener(_updateButtonState);
+    _pass.removeListener(_updatePassword);
+    _email.removeListener(_updateEmail);
   }
 
-  void _updateButtonState() {
-    final isEmailNotEmpty = _email.text.isNotEmpty;
-    final isPasswordNotEmpty = _pass.text.isNotEmpty;
-    setState(() => isButtonEnabled = isEmailNotEmpty && isPasswordNotEmpty);
+  void _updateEmail() {
+    ref.read(emailControllerProvider.notifier).email = _email.text;
+  }
+
+  void _updatePassword() {
+    ref.read(passwordControllerProvider.notifier).password = _pass.text;
   }
 
   @override
   Widget build(BuildContext context) {
+    final isButtonEnabled = ref.watch(isSignUpButtonEnabledProvider);
     return Form(
       key: formKey,
       child: Expanded(
