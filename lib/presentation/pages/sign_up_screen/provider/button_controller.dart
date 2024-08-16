@@ -1,7 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'sign_up_providers.g.dart';
-
+part 'button_controller.g.dart';
 @riverpod
 class EmailController extends _$EmailController {
   @override
