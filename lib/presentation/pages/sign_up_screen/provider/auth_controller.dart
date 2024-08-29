@@ -1,35 +1,32 @@
-import 'package:firebase_auth/firebase_auth.dart' as auth;
+import 'package:askm/data/repository/repository_impl.dart';
+import 'package:askm/data/service/local_storage/secure_storage_service.dart';
+import 'package:askm/data/service/local_storage/shared_pref_storage_service.dart';
+import 'package:askm/data/service/network_service/dio_network_service_impl.dart';
+import 'package:dio/dio.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:askm/data/models/errors/sign_up_exception.dart';
 import 'package:askm/data/models/sign_up_result.dart';
-import 'package:askm/data/models/user.dart';
 
 part 'auth_controller.g.dart';
 
 @riverpod
 class AuthController extends _$AuthController {
-  final auth.FirebaseAuth firebaseAuth = auth.FirebaseAuth.instance;
+  late final RepositoryImpl authRepository;
+  final localeStorage = SharedPrefsStorageService();
+  final networkService = DioNetworkServiceImpl(Dio());
+  final secureStorage = SecureStorageService();
 
   @override
-  SignUpResult? build() => null;
+  SignUpResult? build() {
+    authRepository = RepositoryImpl(
+      secureStorage: secureStorage,
+      networkService: networkService,
+      localStorageService: localeStorage,
+    );
+    return null;
+  }
 
   Future<SignUpResult> signUp(String email, String password) async {
-    SignUpException? error;
-    String? accessToken;
-    auth.UserCredential? credential;
-
-    try {
-      credential = await firebaseAuth.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
-      accessToken = await credential.user?.getIdToken();
-    } on auth.FirebaseAuthException catch (e) {
-      error = SignUpException.fromFirebaseAuth(e);
-    }
-
-    User? user;
-    if (credential != null) user = User(email);
-    return SignUpResult(user, error, accessToken);
+    final result = await authRepository.registerUser(email, password);
+    return result;
   }
 }

@@ -1,19 +1,19 @@
+import 'package:askm/presentation/pages/sign_up_screen/provider/auth_controller.dart';
+import 'package:askm/presentation/pages/sign_up_screen/provider/button_controller.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:askm/core/context_extensions.dart';
 import 'package:askm/core/theme/text_styles.dart';
 import 'package:askm/presentation/tokens/spacing.dart';
 import 'package:askm/presentation/widgets/sign_up_form.dart';
-import 'package:flutter/material.dart';
 
-class SignUpLayout extends StatefulWidget {
+class SignUpLayout extends ConsumerWidget {
   const SignUpLayout({super.key});
 
   @override
-  State<SignUpLayout> createState() => _SignUpLayoutState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final isButtonEnabled = ref.watch(isSignUpButtonEnabledProvider);
 
-class _SignUpLayoutState extends State<SignUpLayout> {
-  @override
-  Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
@@ -27,8 +27,10 @@ class _SignUpLayoutState extends State<SignUpLayout> {
               Text(context.s.createAccount, style: TextStyles.headline2),
               Spacings.spacer32,
               SignUpForm(
-                onSignUpButtonPressed: (String email, String password) {
-                  // TODO(Benik): Implement sign up button
+                onSignUpButtonPressed: (String email, String password) async {
+                  if (isButtonEnabled) {
+                    await ref.read(authControllerProvider.notifier).signUp(email, password);
+                  }
                 },
               ),
               Spacings.spacer48,

@@ -1,7 +1,7 @@
 import 'package:askm/data/models/user.dart';
 
 abstract class LocalStorageService {
-  Future<User?> getUserData();
+  Future<String?> getUserEmail();
 
-  Future<void> saveUserData(User user);
+  Future<void> saveUserInfo(String email, String? otherData);
 }
