@@ -7,7 +7,7 @@ part of 'sign_up_providers.dart';
 // **************************************************************************
 
 String _$isSignUpButtonEnabledHash() =>
-    r'dd2ce05ff02c05279cca5e6ddfd2806df9c9f6e3';
+    r'3b6ee9418149f552f018f7c572841c861ff68901';
 
 /// See also [isSignUpButtonEnabled].
 @ProviderFor(isSignUpButtonEnabled)

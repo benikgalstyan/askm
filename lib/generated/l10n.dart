@@ -199,6 +199,106 @@ class S {
       args: [],
     );
   }
+
+  /// `Ask anything`
+  String get askAnything {
+    return Intl.message(
+      'Ask anything',
+      name: 'askAnything',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Write`
+  String get write {
+    return Intl.message(
+      'Write',
+      name: 'write',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `a plan how to learn trading`
+  String get aPlanHowToLearnTrading {
+    return Intl.message(
+      'a plan how to learn trading',
+      name: 'aPlanHowToLearnTrading',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tell me`
+  String get tellMe {
+    return Intl.message(
+      'Tell me',
+      name: 'tellMe',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `how to care home plant monstera`
+  String get howToCareHomePlantMonstera {
+    return Intl.message(
+      'how to care home plant monstera',
+      name: 'howToCareHomePlantMonstera',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Help me pick`
+  String get helpMePick {
+    return Intl.message(
+      'Help me pick',
+      name: 'helpMePick',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `a birthday gift for my mom`
+  String get aBirthdayGiftForMyMom {
+    return Intl.message(
+      'a birthday gift for my mom',
+      name: 'aBirthdayGiftForMyMom',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Recommend a dish`
+  String get recommendADish {
+    return Intl.message(
+      'Recommend a dish',
+      name: 'recommendADish',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `for romantic dinner`
+  String get forRomanticDinner {
+    return Intl.message(
+      'for romantic dinner',
+      name: 'forRomanticDinner',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Answer`
+  String get answer {
+    return Intl.message(
+      'Answer',
+      name: 'answer',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
