@@ -45,6 +45,7 @@ dependencies:
   riverpod_generator: ^2.4.0
   firebase_auth: ^5.1.2
   flutter_secure_storage: ^4.2.1
+  flutter_keyboard_visibility: ^6.0.0
 
 dev_dependencies:
   flutter_test:

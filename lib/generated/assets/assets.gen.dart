@@ -12,21 +12,58 @@ import 'package:flutter/widgets.dart';
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/app_bar_logo.svg
+  String get appBarLogo => 'assets/images/app_bar_logo.svg';
+
   /// File path: assets/images/background_image.png
   AssetGenImage get backgroundImage =>
       const AssetGenImage('assets/images/background_image.png');
 
+  /// File path: assets/images/bookmark_icon.svg
+  String get bookmarkIcon => 'assets/images/bookmark_icon.svg';
+
+  /// File path: assets/images/food.svg
+  String get food => 'assets/images/food.svg';
+
+  /// File path: assets/images/gift.svg
+  String get gift => 'assets/images/gift.svg';
+
   /// File path: assets/images/google_icon.svg
   String get googleIcon => 'assets/images/google_icon.svg';
+
+  /// File path: assets/images/history_icon.svg
+  String get historyIcon => 'assets/images/history_icon.svg';
 
   /// File path: assets/images/logo.svg
   String get logo => 'assets/images/logo.svg';
 
+  /// File path: assets/images/plant.svg
+  String get plant => 'assets/images/plant.svg';
+
+  /// File path: assets/images/refresh.svg
+  String get refresh => 'assets/images/refresh.svg';
+
   /// File path: assets/images/test.png
   AssetGenImage get test => const AssetGenImage('assets/images/test.png');
 
+  /// File path: assets/images/trade.svg
+  String get trade => 'assets/images/trade.svg';
+
   /// List of all assets
-  List<dynamic> get values => [backgroundImage, googleIcon, logo, test];
+  List<dynamic> get values => [
+        appBarLogo,
+        backgroundImage,
+        bookmarkIcon,
+        food,
+        gift,
+        googleIcon,
+        historyIcon,
+        logo,
+        plant,
+        refresh,
+        test,
+        trade
+      ];
 }
 
 class Assets {
