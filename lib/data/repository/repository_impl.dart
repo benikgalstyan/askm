@@ -19,7 +19,8 @@ class RepositoryImpl implements Repository {
   final NetworkService networkService;
   final SecureStorageService secureStorage;
 
-  static const _factsLink = 'https://cat-fact.herokuapp.com/facts/random?animal_type=cat';
+  static const _factsLink =
+      'https://cat-fact.herokuapp.com/facts/random?animal_type=cat';
   static const _keyOfFact = 'text';
 
   final firebaseAuth = auth.FirebaseAuth.instance;
