@@ -1,5 +1,4 @@
 import 'package:askm/data/models/errors/sign_up_exception.dart';
-import 'package:askm/data/models/facts.dart';
 import 'package:askm/data/models/sign_up_result.dart';
 import 'package:askm/data/models/user.dart';
 import 'package:askm/data/repository/repository.dart';
@@ -19,18 +18,7 @@ class RepositoryImpl implements Repository {
   final NetworkService networkService;
   final SecureStorageService secureStorage;
 
-  static const _factsLink =
-      'https://cat-fact.herokuapp.com/facts/random?animal_type=cat';
-  static const _keyOfFact = 'text';
-
   final firebaseAuth = auth.FirebaseAuth.instance;
-
-  @override
-  Future<Facts> getFacts() async {
-    final response = await networkService.get(_factsLink, headers: {});
-    final jsonData = response.data as Map<String, dynamic>;
-    return Facts(jsonData[_keyOfFact]);
-  }
 
   @override
   Future<SignUpResult> registerUser(String email, String password) async {
