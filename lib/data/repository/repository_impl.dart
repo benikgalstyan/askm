@@ -48,7 +48,7 @@ class RepositoryImpl implements Repository {
       if (accessToken != null) {
         await secureStorage.saveAccessToken(accessToken);
       }
-      await localStorageService.saveUserInfo(email, null);
+      await localStorageService.saveUserInfo(email);
     } on auth.FirebaseAuthException catch (e) {
       error = SignUpException.fromFirebaseAuth(e);
     }
