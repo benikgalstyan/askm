@@ -34,7 +34,11 @@ class TextStyles {
     fontFamily: FontFamily.workSans,
     fontSize: Spacings.M,
   );
-
+  static const TextStyle bodyText3 = TextStyle(
+    fontSize: Spacings.L,
+    color: LightPalette.whiteColor,
+    fontFamily: FontFamily.workSans,
+  );
   static const TextStyle buttonText1 = TextStyle(
     fontSize: Spacings.L,
     fontWeight: FontWeight.w500,
