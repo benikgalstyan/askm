@@ -22,6 +22,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/bookmark_icon.svg
   String get bookmarkIcon => 'assets/images/bookmark_icon.svg';
 
+  /// File path: assets/images/failure.svg
+  String get failure => 'assets/images/failure.svg';
+
   /// File path: assets/images/food.svg
   String get food => 'assets/images/food.svg';
 
@@ -36,6 +39,9 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/logo.svg
   String get logo => 'assets/images/logo.svg';
+
+  /// File path: assets/images/mail.svg
+  String get mail => 'assets/images/mail.svg';
 
   /// File path: assets/images/plant.svg
   String get plant => 'assets/images/plant.svg';
@@ -54,11 +60,13 @@ class $AssetsImagesGen {
         appBarLogo,
         backgroundImage,
         bookmarkIcon,
+        failure,
         food,
         gift,
         googleIcon,
         historyIcon,
         logo,
+        mail,
         plant,
         refresh,
         test,

@@ -26,11 +26,16 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("a birthday gift for my mom"),
         "aPlanHowToLearnTrading":
             MessageLookupByLibrary.simpleMessage("a plan how to learn trading"),
+        "aSignInLinkHasBeenSentToYourEmail":
+            MessageLookupByLibrary.simpleMessage(
+                "A sign in link has been sent to your email adress"),
         "alreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
         "answer": MessageLookupByLibrary.simpleMessage("Answer"),
         "askAnything": MessageLookupByLibrary.simpleMessage("Ask anything"),
         "askm": MessageLookupByLibrary.simpleMessage("ASKM"),
+        "checkYourEmail":
+            MessageLookupByLibrary.simpleMessage("Check your email"),
         "comfort":
             MessageLookupByLibrary.simpleMessage("comfort of your own space"),
         "continueButton": MessageLookupByLibrary.simpleMessage("Continue"),
@@ -48,10 +53,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "howToCareHomePlantMonstera": MessageLookupByLibrary.simpleMessage(
             "how to care home plant monstera"),
         "loading": MessageLookupByLibrary.simpleMessage("Loading"),
+        "okay": MessageLookupByLibrary.simpleMessage("Okay"),
+        "oopps": MessageLookupByLibrary.simpleMessage("Oopps!"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "recommendADish":
             MessageLookupByLibrary.simpleMessage("Recommend a dish"),
         "signIn": MessageLookupByLibrary.simpleMessage("Sign in"),
+        "somethingWentWrongTryAgainLater": MessageLookupByLibrary.simpleMessage(
+            "Something went wrong. Try again later."),
         "tellMe": MessageLookupByLibrary.simpleMessage("Tell me"),
         "whether": MessageLookupByLibrary.simpleMessage(
             "Whether you\'re on the go or in the"),
