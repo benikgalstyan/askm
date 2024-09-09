@@ -17,6 +17,13 @@ class TextStyles {
     fontWeight: FontWeight.w500,
   );
 
+  static const TextStyle errorWidgetTextStyle = TextStyle(
+    fontSize: Spacings.xL,
+    color: LightPalette.blackColor,
+    fontFamily: FontFamily.workSans,
+    fontWeight: FontWeight.w500,
+  );
+
   static const TextStyle bodyText1 = TextStyle(
     fontSize: Spacings.L,
     color: LightPalette.whiteColor,

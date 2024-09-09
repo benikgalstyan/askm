@@ -23,7 +23,7 @@ class ErrorScreenWidget extends StatelessWidget {
       children: [
         const Spacer(flex: upperFlex),
         errorImage,
-        Text(context.s.ooops, style: TextStyles.headline2),
+        Text(context.s.ooops, style: TextStyles.errorWidgetTextStyle),
         Text(context.s.smthWentWrong, style: TextStyles.bodyText2),
         const Spacer(),
         ASKMElevatedButton.primary(
