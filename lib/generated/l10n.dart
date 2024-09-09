@@ -140,51 +140,161 @@ class S {
     );
   }
 
-  /// `Ooops!`
-  String get ooops {
+  /// `Continue`
+  String get continueButton {
     return Intl.message(
-      'Ooops!',
-      name: 'ooops',
+      'Continue',
+      name: 'continueButton',
       desc: '',
       args: [],
     );
   }
 
-  /// `Something went wrong. Try again later`
-  String get smthWentWrong {
+  /// `Email`
+  String get email {
     return Intl.message(
-      'Something went wrong. Try again later',
-      name: 'smthWentWrong',
+      'Email',
+      name: 'email',
       desc: '',
       args: [],
     );
   }
 
-  /// `Okay`
-  String get okay {
+  /// `Password`
+  String get password {
     return Intl.message(
-      'Okay',
-      name: 'okay',
+      'Password',
+      name: 'password',
       desc: '',
       args: [],
     );
   }
 
-  /// `Check your email`
-  String get checkYourEmail {
+  /// `Already have an account?`
+  String get alreadyHaveAnAccount {
     return Intl.message(
-      'Check your email',
-      name: 'checkYourEmail',
+      'Already have an account?',
+      name: 'alreadyHaveAnAccount',
       desc: '',
       args: [],
     );
   }
 
-  /// `A sign in link has been sent to your email adress`
-  String get signInLink {
+  /// `Sign in`
+  String get signIn {
     return Intl.message(
-      'A sign in link has been sent to your email adress',
-      name: 'signInLink',
+      'Sign in',
+      name: 'signIn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create account`
+  String get createAccount {
+    return Intl.message(
+      'Create account',
+      name: 'createAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ask anything`
+  String get askAnything {
+    return Intl.message(
+      'Ask anything',
+      name: 'askAnything',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Write`
+  String get write {
+    return Intl.message(
+      'Write',
+      name: 'write',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `a plan how to learn trading`
+  String get aPlanHowToLearnTrading {
+    return Intl.message(
+      'a plan how to learn trading',
+      name: 'aPlanHowToLearnTrading',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tell me`
+  String get tellMe {
+    return Intl.message(
+      'Tell me',
+      name: 'tellMe',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `how to care home plant monstera`
+  String get howToCareHomePlantMonstera {
+    return Intl.message(
+      'how to care home plant monstera',
+      name: 'howToCareHomePlantMonstera',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Help me pick`
+  String get helpMePick {
+    return Intl.message(
+      'Help me pick',
+      name: 'helpMePick',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `a birthday gift for my mom`
+  String get aBirthdayGiftForMyMom {
+    return Intl.message(
+      'a birthday gift for my mom',
+      name: 'aBirthdayGiftForMyMom',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Recommend a dish`
+  String get recommendADish {
+    return Intl.message(
+      'Recommend a dish',
+      name: 'recommendADish',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `for romantic dinner`
+  String get forRomanticDinner {
+    return Intl.message(
+      'for romantic dinner',
+      name: 'forRomanticDinner',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Answer`
+  String get answer {
+    return Intl.message(
+      'Answer',
+      name: 'answer',
       desc: '',
       args: [],
     );

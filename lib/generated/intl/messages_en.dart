@@ -22,28 +22,42 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "aBirthdayGiftForMyMom":
+            MessageLookupByLibrary.simpleMessage("a birthday gift for my mom"),
+        "aPlanHowToLearnTrading":
+            MessageLookupByLibrary.simpleMessage("a plan how to learn trading"),
+        "alreadyHaveAnAccount":
+            MessageLookupByLibrary.simpleMessage("Already have an account?"),
+        "answer": MessageLookupByLibrary.simpleMessage("Answer"),
+        "askAnything": MessageLookupByLibrary.simpleMessage("Ask anything"),
         "askm": MessageLookupByLibrary.simpleMessage("ASKM"),
-        "checkYourEmail":
-            MessageLookupByLibrary.simpleMessage("Check your email"),
         "comfort":
             MessageLookupByLibrary.simpleMessage("comfort of your own space"),
+        "continueButton": MessageLookupByLibrary.simpleMessage("Continue"),
         "continue_with_email":
             MessageLookupByLibrary.simpleMessage("Continue with email"),
         "continue_with_google":
             MessageLookupByLibrary.simpleMessage("Continue with Google"),
+        "createAccount": MessageLookupByLibrary.simpleMessage("Create account"),
+        "email": MessageLookupByLibrary.simpleMessage("Email"),
         "error": MessageLookupByLibrary.simpleMessage("Error"),
+        "forRomanticDinner":
+            MessageLookupByLibrary.simpleMessage("for romantic dinner"),
         "hello_world": MessageLookupByLibrary.simpleMessage("Hello World"),
+        "helpMePick": MessageLookupByLibrary.simpleMessage("Help me pick"),
+        "howToCareHomePlantMonstera": MessageLookupByLibrary.simpleMessage(
+            "how to care home plant monstera"),
         "loading": MessageLookupByLibrary.simpleMessage("Loading"),
-        "okay": MessageLookupByLibrary.simpleMessage("Okay"),
-        "ooops": MessageLookupByLibrary.simpleMessage("Ooops!"),
-        "signInLink": MessageLookupByLibrary.simpleMessage(
-            "A sign in link has been sent to your email adress"),
-        "smthWentWrong": MessageLookupByLibrary.simpleMessage(
-            "Something went wrong. Try again later"),
+        "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "recommendADish":
+            MessageLookupByLibrary.simpleMessage("Recommend a dish"),
+        "signIn": MessageLookupByLibrary.simpleMessage("Sign in"),
+        "tellMe": MessageLookupByLibrary.simpleMessage("Tell me"),
         "whether": MessageLookupByLibrary.simpleMessage(
             "Whether you\'re on the go or in the"),
         "whether_you_re_on_the_go_or_in_the_comfort_of_your_own_space":
             MessageLookupByLibrary.simpleMessage(
-                "Whether you\'re on the go or in the comfort of your own space")
+                "Whether you\'re on the go or in the comfort of your own space"),
+        "write": MessageLookupByLibrary.simpleMessage("Write")
       };
 }
