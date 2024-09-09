@@ -15,8 +15,10 @@ class CheckMailScreenWidget extends StatelessWidget {
   final VoidCallback onCheckEmailPressed;
 
   static const upperFlex = 2;
-  final mailImage = SvgPicture.asset(Assets.images.mail, height: 150, width: 150);
-  static const horizontalPadding = EdgeInsets.symmetric(horizontal: Spacings.xxxxL);
+  final mailImage =
+      SvgPicture.asset(Assets.images.mail, height: 150, width: 150);
+  static const horizontalPadding =
+      EdgeInsets.symmetric(horizontal: Spacings.xxxxL);
 
   @override
   Widget build(BuildContext context) => Center(
@@ -24,13 +26,17 @@ class CheckMailScreenWidget extends StatelessWidget {
           children: [
             const Spacer(flex: upperFlex),
             mailImage,
-            Text(context.s.checkYourEmail, style: TextStyles.headline2),
+            Text(
+              context.s.checkYourEmail,
+              style: TextStyles.errorWidgetTextStyle,
+            ),
+            Spacings.spacer2,
             Padding(
               padding: horizontalPadding,
               child: Text(
-                context.s.signInLink,
+                context.s.aSignInLinkHasBeenSentToYourEmail,
                 textAlign: TextAlign.center,
-                style: TextStyles.bodyText2,
+                style: TextStyles.bodyText4,
               ),
             ),
             const Spacer(),

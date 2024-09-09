@@ -15,24 +15,29 @@ class ErrorScreenWidget extends StatelessWidget {
   final VoidCallback onErrorPressed;
 
   static const upperFlex = 2;
-  final errorImage = SvgPicture.asset(Assets.images.failure, height: 150, width: 150);
+  final errorImage =
+      SvgPicture.asset(Assets.images.failure, height: 150, width: 150);
 
   @override
   Widget build(BuildContext context) => Center(
-    child: Column(
-      children: [
-        const Spacer(flex: upperFlex),
-        errorImage,
-        Text(context.s.ooops, style: TextStyles.errorWidgetTextStyle),
-        Text(context.s.smthWentWrong, style: TextStyles.bodyText2),
-        const Spacer(),
-        ASKMElevatedButton.primary(
-          isEnabled: true,
-          text: context.s.okay,
-          onPressed: onErrorPressed,
+        child: Column(
+          children: [
+            const Spacer(flex: upperFlex),
+            errorImage,
+            Text(context.s.oopps, style: TextStyles.errorWidgetTextStyle),
+            Spacings.spacer2,
+            Text(
+              context.s.somethingWentWrongTryAgainLater,
+              style: TextStyles.bodyText4,
+            ),
+            const Spacer(),
+            ASKMElevatedButton.primary(
+              isEnabled: true,
+              text: context.s.okay,
+              onPressed: onErrorPressed,
+            ),
+            Spacings.spacer48,
+          ],
         ),
-        Spacings.spacer48,
-      ],
-    ),
-  );
+      );
 }
