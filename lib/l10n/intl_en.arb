@@ -23,5 +23,10 @@
   "aBirthdayGiftForMyMom": "a birthday gift for my mom",
   "recommendADish": "Recommend a dish",
   "forRomanticDinner": "for romantic dinner",
-  "answer": "Answer"
+  "answer": "Answer",
+  "oopps": "Oopps!",
+  "somethingWentWrongTryAgainLater": "Something went wrong. Try again later.",
+  "okay": "Okay",
+  "checkYourEmail": "Check your email",
+  "aSignInLinkHasBeenSentToYourEmail": "A sign in link has been sent to your email adress"
 }

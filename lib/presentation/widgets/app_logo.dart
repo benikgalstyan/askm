@@ -30,7 +30,7 @@ class AppLogo extends StatelessWidget {
             padding: Spacings.paddingH32,
             child: Text(
               description!,
-              style: TextStyles.bodyText1,
+              style: TextStyles.bodyText3,
               textAlign: TextAlign.center,
             ),
           ),

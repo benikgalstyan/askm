@@ -18,6 +18,12 @@ class TextStyles {
     color: LightPalette.blackColor,
     fontFamily: FontFamily.lexendMega,
   );
+  static const TextStyle errorWidgetTextStyle = TextStyle(
+    fontSize: Spacings.xL,
+    color: LightPalette.blackColor,
+    fontFamily: FontFamily.workSans,
+    fontWeight: FontWeight.w500,
+  );
   static const TextStyle headline4 = TextStyle(
     fontWeight: FontWeight.w500,
     fontSize: Spacings.L,
@@ -34,7 +40,16 @@ class TextStyles {
     fontFamily: FontFamily.workSans,
     fontSize: Spacings.M,
   );
-
+  static const TextStyle bodyText3 = TextStyle(
+    fontSize: Spacings.L,
+    color: LightPalette.whiteColor,
+    fontFamily: FontFamily.workSans,
+  );
+  static const TextStyle bodyText4 = TextStyle(
+    fontSize: Spacings.L,
+    color: LightPalette.blackColor,
+    fontFamily: FontFamily.workSans,
+  );
   static const TextStyle buttonText1 = TextStyle(
     fontSize: Spacings.L,
     fontWeight: FontWeight.w500,
