@@ -26,10 +26,7 @@ class SocialSignUpLayout extends StatelessWidget {
                 onGooglePressed: () {
                   // TODO(Benik): Implement Google sign-up logic
                 },
-                onEmailPressed: () {
-                  // TODO(Benik): Implement email sign-up logic
-                   context.r.pushNamed(SignUpScreen.nameRoute);
-                },
+                onEmailPressed: () => context.r.pushNamed(SignUpScreen.nameRoute),
               ),
               Spacings.spacer32,
             ],

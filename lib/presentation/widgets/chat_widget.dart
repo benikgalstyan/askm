@@ -78,7 +78,7 @@ class ChatWidgetState extends State<ChatWidget> {
                             ],
                           ),
                         ),
-                        Spacings.spacer20
+                        Spacings.spacer20,
                       ],
                     ),
                   ),

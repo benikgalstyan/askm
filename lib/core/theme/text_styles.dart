@@ -32,7 +32,7 @@ class TextStyles {
   );
   static const TextStyle bodyText1 = TextStyle(
     fontSize: Spacings.L,
-    color: LightPalette.blackColor,
+    color: LightPalette.whiteColor,
     fontFamily: FontFamily.workSans,
   );
   static const TextStyle bodyText2 = TextStyle(

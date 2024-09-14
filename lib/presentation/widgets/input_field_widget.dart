@@ -16,7 +16,8 @@ class InputFieldWidget extends StatelessWidget {
   final SingleRegistrationValidatorFunction? validator;
 
   final defaultBorderRadius = BorderRadius.circular(10);
-  static const contentPadding = EdgeInsets.symmetric(vertical: 14, horizontal: 14);
+  static const contentPadding =
+      EdgeInsets.symmetric(vertical: 14, horizontal: 14);
 
   @override
   Widget build(BuildContext context) {

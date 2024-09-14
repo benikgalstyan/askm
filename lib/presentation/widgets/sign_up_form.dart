@@ -2,7 +2,7 @@ import 'package:askm/core/context_extensions.dart';
 import 'package:askm/core/templates/form_validators.dart';
 import 'package:askm/core/theme/palette/light_palette.dart';
 import 'package:askm/core/theme/text_styles.dart';
-import 'package:askm/presentation/pages/sign_up_screen/sign_up_providers.dart';
+import 'package:askm/presentation/pages/sign_up_screen/provider/button_controller.dart';
 import 'package:askm/presentation/widgets/custom_button.dart';
 import 'package:askm/presentation/widgets/input_field_widget.dart';
 import 'package:flutter/gestures.dart';
