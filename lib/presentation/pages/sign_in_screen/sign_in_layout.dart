@@ -8,8 +8,8 @@ import 'package:askm/core/theme/text_styles.dart';
 import 'package:askm/presentation/tokens/spacing.dart';
 import 'package:askm/presentation/widgets/sign_up_form.dart';
 
-class SignUpLayout extends ConsumerWidget {
-  const SignUpLayout({super.key});
+class SignInLayout extends ConsumerWidget {
+  const SignInLayout({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -25,15 +25,15 @@ class SignUpLayout extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Spacings.spacer64,
-              Text(context.s.createAccount, style: TextStyles.headline2),
+              Text(context.s.signIn, style: TextStyles.headline2),
               Spacings.spacer32,
               SignUpForm(
-                isSignUp: true,
-                onSignUpButtonPressed: (String email, String password) async {
+                isSignUp: false,
+                onSignInButtonPressed: (String email, String password) async {
                   if (isButtonEnabled) {
                     final success = await ref
                         .read(authControllerProvider.notifier)
-                        .signUp(email, password);
+                        .signIn(email, password);
 
                     if (success) {
                       await context.r.replaceAll([MainRoute()]);

@@ -54,12 +54,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "howToCareHomePlantMonstera": MessageLookupByLibrary.simpleMessage(
             "how to care home plant monstera"),
         "loading": MessageLookupByLibrary.simpleMessage("Loading"),
+        "noAcc":
+            MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
         "okay": MessageLookupByLibrary.simpleMessage("Okay"),
         "oopps": MessageLookupByLibrary.simpleMessage("Oopps!"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "recommendADish":
             MessageLookupByLibrary.simpleMessage("Recommend a dish"),
         "signIn": MessageLookupByLibrary.simpleMessage("Sign in"),
+        "signUp": MessageLookupByLibrary.simpleMessage("Sign up"),
         "somethingWentWrongTryAgainLater": MessageLookupByLibrary.simpleMessage(
             "Something went wrong. Try again later."),
         "tellMe": MessageLookupByLibrary.simpleMessage("Tell me"),

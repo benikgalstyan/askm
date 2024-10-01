@@ -36,11 +36,4 @@ class FormValidators {
     }
     return null;
   };
-
-  static DoubleValidatorFunction repeatPasswordValidator = (value1, value2) {
-    if (value1 == null || value1.isEmpty) {
-      return 'Please enter password';
-    }
-    return value1 == value2 ? null : 'Re-enter your password';
-  };
 }

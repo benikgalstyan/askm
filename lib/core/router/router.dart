@@ -1,6 +1,7 @@
 import 'package:askm/data/models/chat_session.dart';
 import 'package:askm/presentation/pages/history_screen/history_screen.dart';
 import 'package:askm/presentation/pages/main_screen/main_screen.dart';
+import 'package:askm/presentation/pages/sign_in_screen/sign_in_screen.dart';
 import 'package:askm/presentation/pages/sign_up_screen/sign_up_screen.dart';
 import 'package:askm/presentation/pages/social_sign_up_screen/social_sign_up_screen.dart';
 import 'package:auto_route/auto_route.dart';
@@ -18,6 +19,7 @@ class AppRouter extends _$AppRouter {
           initial: true,
         ),
         AutoRoute(page: SignUpRoute.page, path: SignUpScreen.nameRoute),
+        AutoRoute(page: SignInRoute.page, path: SignInScreen.nameRoute),
         AutoRoute(
           page: MainRoute.page,
           path: MainScreen.nameRoute,

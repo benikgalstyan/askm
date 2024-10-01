@@ -2,6 +2,7 @@ import 'package:askm/core/context_extensions.dart';
 import 'package:askm/core/templates/form_validators.dart';
 import 'package:askm/core/theme/palette/light_palette.dart';
 import 'package:askm/core/theme/text_styles.dart';
+import 'package:askm/presentation/pages/sign_in_screen/sign_in_screen.dart';
 import 'package:askm/presentation/pages/sign_up_screen/provider/button_controller.dart';
 import 'package:askm/presentation/widgets/custom_button.dart';
 import 'package:askm/presentation/widgets/input_field_widget.dart';
@@ -12,10 +13,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class SignUpForm extends ConsumerStatefulWidget {
   const SignUpForm({
     super.key,
-    required this.onSignUpButtonPressed,
+    this.onSignInButtonPressed,
+    this.onSignUpButtonPressed,
+    required this.isSignUp,
   });
 
-  final void Function(String email, String password) onSignUpButtonPressed;
+  final void Function(String email, String password)? onSignUpButtonPressed;
+  final void Function(String email, String password)? onSignInButtonPressed;
+
+  final bool isSignUp;
 
   @override
   ConsumerState<SignUpForm> createState() => _SignUpFormState();
@@ -69,29 +75,52 @@ class _SignUpFormState extends ConsumerState<SignUpForm> {
             InputFieldWidget(
               controller: _pass,
               labelText: context.s.password,
-              validator: FormValidators.passwordRegValidator,
+              validator: widget.isSignUp
+                  ? FormValidators.passwordRegValidator
+                  : FormValidators.passwordValidator,
             ),
             Padding(
               padding: paddingTopLeft,
               child: Row(
                 children: [
-                  RichText(
-                    text: TextSpan(
-                      children: [
-                        TextSpan(style: TextStyles.hintText1, text: context.s.alreadyHaveAnAccount),
-                        TextSpan(
-                          text: context.s.signIn,
-                          style: TextStyles.hintText1.copyWith(
-                            color: LightPalette.primaryButtonColor,
+                  widget.isSignUp
+                      ? RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                style: TextStyles.hintText1,
+                                text: context.s.alreadyHaveAnAccount,
+                              ),
+                              TextSpan(
+                                text: context.s.signIn,
+                                style: TextStyles.hintText1.copyWith(
+                                  color: LightPalette.primaryButtonColor,
+                                ),
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () => context.r
+                                      .pushNamed(SignInScreen.nameRoute),
+                              ),
+                            ],
                           ),
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              // TODO(Benik): Implement sign in navigation
-                            },
+                        )
+                      : RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                style: TextStyles.hintText1,
+                                text: context.s.noAcc,
+                              ),
+                              TextSpan(
+                                text: context.s.signUp,
+                                style: TextStyles.hintText1.copyWith(
+                                  color: LightPalette.primaryButtonColor,
+                                ),
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () => context.r.maybePop(),
+                              ),
+                            ],
+                          ),
                         ),
-                      ],
-                    ),
-                  ),
                 ],
               ),
             ),
@@ -101,7 +130,17 @@ class _SignUpFormState extends ConsumerState<SignUpForm> {
               onPressed: isButtonEnabled
                   ? () {
                       if (formKey.currentState!.validate()) {
-                        widget.onSignUpButtonPressed(_email.text, _pass.text);
+                        if (widget.isSignUp) {
+                          widget.onSignUpButtonPressed!(
+                            _email.text,
+                            _pass.text,
+                          );
+                        } else {
+                          widget.onSignInButtonPressed!(
+                            _email.text,
+                            _pass.text,
+                          );
+                        }
                       }
                     }
                   : () {},

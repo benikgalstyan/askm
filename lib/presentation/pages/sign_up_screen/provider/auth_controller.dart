@@ -35,6 +35,16 @@ class AuthController extends _$AuthController {
     }
   }
 
+  Future<bool> signIn(String email, String password) async {
+    final result = await authRepository.signIn(email, password);
+
+    if (result.success) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   Future<void> logout() async {
     await secureStorage.deleteAccessToken();
     await localeStorage.clearUserInfo();
