@@ -15,10 +15,21 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    MainRoute.name: (routeData) {
+    HistoryRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const MainScreen(),
+        child: const HistoryScreen(),
+      );
+    },
+    MainRoute.name: (routeData) {
+      final args =
+          routeData.argsAs<MainRouteArgs>(orElse: () => const MainRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: MainScreen(
+          key: args.key,
+          chatSession: args.chatSession,
+        ),
       );
     },
     SignUpRoute.name: (routeData) {
@@ -37,17 +48,54 @@ abstract class _$AppRouter extends RootStackRouter {
 }
 
 /// generated route for
-/// [MainScreen]
-class MainRoute extends PageRouteInfo<void> {
-  const MainRoute({List<PageRouteInfo>? children})
+/// [HistoryScreen]
+class HistoryRoute extends PageRouteInfo<void> {
+  const HistoryRoute({List<PageRouteInfo>? children})
       : super(
+          HistoryRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'HistoryRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [MainScreen]
+class MainRoute extends PageRouteInfo<MainRouteArgs> {
+  MainRoute({
+    Key? key,
+    ChatSession? chatSession,
+    List<PageRouteInfo>? children,
+  }) : super(
           MainRoute.name,
+          args: MainRouteArgs(
+            key: key,
+            chatSession: chatSession,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'MainRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<MainRouteArgs> page = PageInfo<MainRouteArgs>(name);
+}
+
+class MainRouteArgs {
+  const MainRouteArgs({
+    this.key,
+    this.chatSession,
+  });
+
+  final Key? key;
+
+  final ChatSession? chatSession;
+
+  @override
+  String toString() {
+    return 'MainRouteArgs{key: $key, chatSession: $chatSession}';
+  }
 }
 
 /// generated route for

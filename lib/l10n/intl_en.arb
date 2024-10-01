@@ -28,5 +28,6 @@
   "somethingWentWrongTryAgainLater": "Something went wrong. Try again later.",
   "okay": "Okay",
   "checkYourEmail": "Check your email",
-  "aSignInLinkHasBeenSentToYourEmail": "A sign in link has been sent to your email adress"
+  "aSignInLinkHasBeenSentToYourEmail": "A sign in link has been sent to your email adress",
+  "history": "History"
 }

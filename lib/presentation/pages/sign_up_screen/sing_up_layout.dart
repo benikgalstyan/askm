@@ -1,3 +1,4 @@
+import 'package:askm/core/router/router.dart';
 import 'package:askm/presentation/pages/sign_up_screen/provider/auth_controller.dart';
 import 'package:askm/presentation/pages/sign_up_screen/provider/button_controller.dart';
 import 'package:flutter/material.dart';
@@ -6,7 +7,6 @@ import 'package:askm/core/context_extensions.dart';
 import 'package:askm/core/theme/text_styles.dart';
 import 'package:askm/presentation/tokens/spacing.dart';
 import 'package:askm/presentation/widgets/sign_up_form.dart';
-import 'package:askm/presentation/pages/main_screen/main_screen.dart';
 
 class SignUpLayout extends ConsumerWidget {
   const SignUpLayout({super.key});
@@ -35,7 +35,7 @@ class SignUpLayout extends ConsumerWidget {
                         .signUp(email, password);
 
                     if (success) {
-                      await context.r.pushNamed(MainScreen.nameRoute);
+                      await context.r.replaceAll([MainRoute()]);
                     } else {
                       // TODO(Benik): Implement error screen
                       const Text('Error');
