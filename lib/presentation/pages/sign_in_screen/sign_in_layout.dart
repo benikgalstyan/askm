@@ -28,6 +28,7 @@ class SignInLayout extends ConsumerWidget {
               Text(context.s.signIn, style: TextStyles.headline2),
               Spacings.spacer32,
               SignUpForm(
+                isSignUp: false,
                 onSignInButtonPressed: (String email, String password) async {
                   if (isButtonEnabled) {
                     final success = await ref
@@ -42,7 +43,6 @@ class SignInLayout extends ConsumerWidget {
                     }
                   }
                 },
-                isSignUp: false,
               ),
               Spacings.spacer48,
             ],

@@ -28,6 +28,7 @@ class SignUpLayout extends ConsumerWidget {
               Text(context.s.createAccount, style: TextStyles.headline2),
               Spacings.spacer32,
               SignUpForm(
+                isSignUp: true,
                 onSignUpButtonPressed: (String email, String password) async {
                   if (isButtonEnabled) {
                     final success = await ref

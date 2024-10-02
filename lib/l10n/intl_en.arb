@@ -14,7 +14,7 @@
   "alreadyHaveAnAccount": "Already have an account?",
   "signIn": "Sign in",
   "createAccount": "Create account",
-  "askAnything" : "Ask anything",
+  "askAnything": "Ask anything",
   "write": "Write",
   "aPlanHowToLearnTrading": "a plan how to learn trading",
   "tellMe": "Tell me",
@@ -29,5 +29,8 @@
   "okay": "Okay",
   "checkYourEmail": "Check your email",
   "aSignInLinkHasBeenSentToYourEmail": "A sign in link has been sent to your email adress",
-  "history": "History"
+  "history": "History",
+  "noAcc": "Don't have an account?",
+  "signUp": "Sign up"
+
 }

@@ -7,7 +7,7 @@ part of 'chat_session_controller.dart';
 // **************************************************************************
 
 String _$chatSessionControllerHash() =>
-    r'4f1f4aca2568f8f5325cf5cfd5b289f2cdc60fac';
+    r'eabb957d3686f24bd1c8db85d59d9668aae78bd9';
 
 /// See also [ChatSessionController].
 @ProviderFor(ChatSessionController)
