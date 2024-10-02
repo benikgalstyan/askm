@@ -5,6 +5,7 @@ import 'package:askm/core/theme/palette/light_palette.dart';
 import 'package:askm/generated/assets/assets.gen.dart';
 import 'package:askm/presentation/tokens/spacing.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:intl/intl.dart';
 
 class ChatWidget extends StatefulWidget {
   const ChatWidget({
@@ -28,6 +29,11 @@ class ChatWidgetState extends State<ChatWidget> {
     Assets.images.refresh,
   );
 
+  String _getCurrentTimestamp() {
+    final now = DateTime.now();
+    return DateFormat('HH:mm  dd.MM.yyyy').format(now);
+  }
+
   @override
   Widget build(BuildContext context) => Expanded(
         child: SingleChildScrollView(
@@ -45,6 +51,11 @@ class ChatWidgetState extends State<ChatWidget> {
                         Text(
                           message['question']!,
                           style: TextStyles.questionText,
+                        ),
+                        Spacings.spacer8,
+                        Text(
+                          _getCurrentTimestamp(),
+                          style: TextStyles.timeText,
                         ),
                         Spacings.spacer32,
                         Container(
