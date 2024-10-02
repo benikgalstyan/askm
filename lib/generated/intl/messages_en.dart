@@ -50,6 +50,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("for romantic dinner"),
         "hello_world": MessageLookupByLibrary.simpleMessage("Hello World"),
         "helpMePick": MessageLookupByLibrary.simpleMessage("Help me pick"),
+        "history": MessageLookupByLibrary.simpleMessage("History"),
         "howToCareHomePlantMonstera": MessageLookupByLibrary.simpleMessage(
             "how to care home plant monstera"),
         "loading": MessageLookupByLibrary.simpleMessage("Loading"),

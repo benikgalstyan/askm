@@ -18,18 +18,26 @@ class TextStyles {
     color: LightPalette.blackColor,
     fontFamily: FontFamily.lexendMega,
   );
+  static const TextStyle headline4 = TextStyle(
+    fontSize: Spacings.L,
+    fontWeight: FontWeight.w500,
+    color: LightPalette.titleColor,
+    fontFamily: FontFamily.workSans,
+  );
+
+  static const TextStyle headline5 = TextStyle(
+    fontSize: Spacings.xxL,
+    color: LightPalette.titleColor,
+    fontFamily: FontFamily.workSans,
+  );
+
   static const TextStyle errorWidgetTextStyle = TextStyle(
     fontSize: Spacings.xL,
     color: LightPalette.blackColor,
     fontFamily: FontFamily.workSans,
     fontWeight: FontWeight.w500,
   );
-  static const TextStyle headline4 = TextStyle(
-    fontWeight: FontWeight.w500,
-    fontSize: Spacings.L,
-    color: LightPalette.titleColor,
-    fontFamily: FontFamily.workSans,
-  );
+
   static const TextStyle bodyText1 = TextStyle(
     fontSize: Spacings.L,
     color: LightPalette.whiteColor,
@@ -99,6 +107,12 @@ class TextStyles {
     color: LightPalette.answerColor,
     fontFamily: FontFamily.workSans,
   );
+
+  static const TextStyle timeText = TextStyle(
+    fontSize: Spacings.M,
+    color: LightPalette.disabledTextButtonColor,
+    fontFamily: FontFamily.workSans,
+  );
   static const TextStyle answerText1 = TextStyle(
     fontSize: Spacings.xL,
     color: LightPalette.answerColor,
@@ -108,5 +122,19 @@ class TextStyles {
     fontSize: Spacings.L,
     color: LightPalette.disabledTextButtonColor,
     fontFamily: FontFamily.workSans,
+  );
+  static const TextStyle historyTitle = TextStyle(
+    fontSize: Spacings.L,
+    color: LightPalette.dayTitleColor,
+    fontFamily: FontFamily.workSans,
+  );
+  static const sessionTitle = TextStyle(
+    fontSize: Spacings.L,
+    fontWeight: FontWeight.w500,
+    color: LightPalette.blackColor,
+  );
+  static const dateTimeText = TextStyle(
+    fontSize: Spacings.mL,
+    color: LightPalette.dateTimeColor,
   );
 }

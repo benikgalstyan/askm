@@ -6,6 +6,7 @@ class Spacings {
   static const double xS = 6.0;
   static const double S = 8.0;
   static const double M = 12.0;
+  static const double mL = 14.0;
   static const double L = 16.0;
   static const double xL = 20.0;
   static const double xxL = 24.0;

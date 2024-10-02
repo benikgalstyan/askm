@@ -10,6 +10,8 @@ class LightPalette {
   static const borderColor = Color(0xFFB0B0B0);
   static const cursorColor = Color(0xFF232323);
   static const answerColor = Color(0xFF141323);
+  static const dayTitleColor = Color(0xDD919191);
+  static const dateTimeColor = Color(0xFF919191);
   static const borderGreyColor = Color(0xFFE1E1E1);
   static const descriptionColor = Color(0xFF141323);
   static const primaryButtonColor = Color(0xFF177161);
