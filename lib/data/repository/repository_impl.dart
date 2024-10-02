@@ -1,4 +1,5 @@
 import 'package:askm/data/models/errors/sign_up_exception.dart';
+import 'package:askm/data/models/sign_in_result.dart';
 import 'package:askm/data/models/sign_up_result.dart';
 import 'package:askm/data/models/user.dart';
 import 'package:askm/data/repository/repository.dart';
@@ -45,5 +46,25 @@ class RepositoryImpl implements Repository {
     if (credential != null) user = User(email);
 
     return SignUpResult(user, error, accessToken);
+  }
+
+  @override
+  Future<SignInResult> signIn(String email, String password) async {
+    SignUpException? error;
+    auth.UserCredential? credential;
+
+    try {
+      credential = await firebaseAuth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+    } on auth.FirebaseAuthException catch (e) {
+      error = SignUpException.fromFirebaseAuth(e);
+    }
+
+    User? user;
+    if (credential != null) user = User(email);
+
+    return SignInResult(user, error);
   }
 }
