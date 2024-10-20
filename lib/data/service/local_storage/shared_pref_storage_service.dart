@@ -14,9 +14,9 @@ class SharedPrefsStorageService implements LocalStorageService {
     return prefs.getString('userEmail');
   }
 
+  @override
   Future<void> clearUserInfo() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.remove('userEmail');
-    await prefs.remove('additionalInfo');
   }
 }

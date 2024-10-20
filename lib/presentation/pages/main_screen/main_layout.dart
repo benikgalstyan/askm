@@ -134,60 +134,58 @@ class _MainLayoutState extends ConsumerState<MainLayout>
   void _dismissKeyboard() => FocusScope.of(context).unfocus();
 
   @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: _dismissKeyboard,
-      child: Scaffold(
-        resizeToAvoidBottomInset: true,
-        appBar: AppBarWidget(
-          onHistoryTap: () => context.r.pushNamed(HistoryScreen.nameRoute),
-          onBookmarkTap: _clearChatSession,
-        ),
-        body: Padding(
-          padding: Spacings.paddingH16,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              if (!_hasResponse) ...[
-                AnimatedHeaderWidget(
-                  controller: animationController,
+  Widget build(BuildContext context) => GestureDetector(
+        onTap: _dismissKeyboard,
+        child: Scaffold(
+          resizeToAvoidBottomInset: true,
+          appBar: AppBarWidget(
+            onHistoryTap: () => context.r.pushNamed(HistoryScreen.nameRoute),
+            onBookmarkTap: _clearChatSession,
+          ),
+          body: Padding(
+            padding: Spacings.paddingH16,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                if (!_hasResponse) ...[
+                  AnimatedHeaderWidget(
+                    controller: animationController,
+                    iconOpacityAnimation: _iconOpacityAnimation,
+                  ),
+                  ActionWall(
+                    controller: animationController,
+                    iconOpacityAnimation: _iconOpacityAnimation,
+                    onWriteTap: () {
+                      // TODO(Benik): implement action wall logic
+                    },
+                    onTellMeTap: () {},
+                    onHelpMePickTap: () {},
+                    onRecommendADishTap: () {},
+                  ),
+                ],
+                Spacings.spacer12,
+                if (_hasResponse)
+                  ChatWidget(
+                    messages: messages,
+                    chatController: chatController,
+                    onRefreshTap: () {
+                      // TODO(Benik): Implement refresh logic
+                    },
+                  ),
+                MainInputField(
+                  controller: _controller,
                   iconOpacityAnimation: _iconOpacityAnimation,
-                ),
-                ActionWall(
-                  controller: animationController,
-                  iconOpacityAnimation: _iconOpacityAnimation,
-                  onWriteTap: () {
-                    // TODO(Benik): implement action wall logic
+                  onMicTap: () {
+                    // TODO(Benik): implement on mic logic
                   },
-                  onTellMeTap: () {},
-                  onHelpMePickTap: () {},
-                  onRecommendADishTap: () {},
+                  onSendTap: _sendMessage,
+                  onFocus: () => WidgetsBinding.instance
+                      .addPostFrameCallback((_) => _scrollToBottom()),
                 ),
+                Spacings.spacer12,
               ],
-              Spacings.spacer12,
-              if (_hasResponse)
-                ChatWidget(
-                  messages: messages,
-                  chatController: chatController,
-                  onRefreshTap: () {
-                    // TODO(Benik): Implement refresh logic
-                  },
-                ),
-              MainInputField(
-                controller: _controller,
-                iconOpacityAnimation: _iconOpacityAnimation,
-                onMicTap: () {
-                  // TODO(Benik): implement on mic logic
-                },
-                onSendTap: _sendMessage,
-                onFocus: () => WidgetsBinding.instance
-                    .addPostFrameCallback((_) => _scrollToBottom()),
-              ),
-              Spacings.spacer12,
-            ],
+            ),
           ),
         ),
-      ),
-    );
-  }
+      );
 }

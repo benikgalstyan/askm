@@ -14,7 +14,7 @@ class AskmApp extends StatefulWidget {
 }
 
 class _AskmAppState extends State<AskmApp> {
-  final _router = AppRouter();
+  final _router = AppRouter(secureStorageService: getSecureStorage);
 
   @override
   Widget build(BuildContext context) {
