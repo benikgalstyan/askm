@@ -1,4 +1,6 @@
+import 'package:askm/core/router/router_guard.dart';
 import 'package:askm/data/models/chat_session.dart';
+import 'package:askm/data/service/local_storage/secure_storage_service.dart';
 import 'package:askm/presentation/pages/history_screen/history_screen.dart';
 import 'package:askm/presentation/pages/main_screen/main_screen.dart';
 import 'package:askm/presentation/pages/sign_in_screen/sign_in_screen.dart';
@@ -11,12 +13,17 @@ part 'router.gr.dart';
 
 @AutoRouterConfig()
 class AppRouter extends _$AppRouter {
+  AppRouter({required this.secureStorageService});
+
+  final SecureStorageService secureStorageService;
+
   @override
   List<AutoRoute> get routes => <AutoRoute>[
         AutoRoute(
+          initial: true,
           page: SocialSignUpRoute.page,
           path: SocialSignUpScreen.nameRoute,
-          initial: true,
+          guards: [AuthGuard(secureStorageService: secureStorageService)],
         ),
         AutoRoute(page: SignUpRoute.page, path: SignUpScreen.nameRoute),
         AutoRoute(page: SignInRoute.page, path: SignInScreen.nameRoute),

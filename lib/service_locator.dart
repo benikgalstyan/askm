@@ -14,6 +14,7 @@ import 'package:logger/logger.dart';
 final getIt = GetIt.instance;
 final getDio = getIt.get<Dio>();
 final getLogger = getIt.call<CompositeLogger>();
+final getSecureStorage = getIt.get<SecureStorageService>();
 
 void setupServicesLocator() {
   final dio = Dio();
@@ -25,6 +26,8 @@ void setupServicesLocator() {
   final localeStorage = SharedPrefsStorageService();
   final networkService = DioNetworkServiceImpl(getDio);
   final secureStorage = SecureStorageService();
+
+  getIt.registerSingleton<SecureStorageService>(secureStorage);
 
   getIt.registerSingleton<CompositeLogger>(
     CompositeLoggerImpl(logger: Logger()),

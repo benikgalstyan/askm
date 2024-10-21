@@ -45,8 +45,5 @@ class AuthController extends _$AuthController {
     }
   }
 
-  Future<void> logout() async {
-    await secureStorage.deleteAccessToken();
-    await localeStorage.clearUserInfo();
-  }
+
 }
