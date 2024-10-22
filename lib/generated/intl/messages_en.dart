@@ -32,8 +32,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "alreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
         "answer": MessageLookupByLibrary.simpleMessage("Answer"),
+        "areYouSureYouWantToLogOut": MessageLookupByLibrary.simpleMessage(
+            "Are you sure you want to log out?"),
         "askAnything": MessageLookupByLibrary.simpleMessage("Ask anything"),
         "askm": MessageLookupByLibrary.simpleMessage("ASKM"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "checkYourEmail":
             MessageLookupByLibrary.simpleMessage("Check your email"),
         "comfort":
@@ -54,8 +57,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "howToCareHomePlantMonstera": MessageLookupByLibrary.simpleMessage(
             "how to care home plant monstera"),
         "loading": MessageLookupByLibrary.simpleMessage("Loading"),
+        "logOut": MessageLookupByLibrary.simpleMessage("Log Out"),
         "noAcc":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
+        "noChatSessionsFound":
+            MessageLookupByLibrary.simpleMessage("No chat sessions found."),
         "okay": MessageLookupByLibrary.simpleMessage("Okay"),
         "oopps": MessageLookupByLibrary.simpleMessage("Oopps!"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),

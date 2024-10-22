@@ -31,6 +31,9 @@
   "aSignInLinkHasBeenSentToYourEmail": "A sign in link has been sent to your email adress",
   "history": "History",
   "noAcc": "Don't have an account?",
-  "signUp": "Sign up"
-
+  "signUp": "Sign up",
+  "areYouSureYouWantToLogOut": "Are you sure you want to log out?",
+  "logOut": "Log Out",
+  "cancel": "Cancel",
+  "noChatSessionsFound": "No chat sessions found."
 }

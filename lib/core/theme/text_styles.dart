@@ -137,4 +137,14 @@ class TextStyles {
     fontSize: Spacings.mL,
     color: LightPalette.dateTimeColor,
   );
+
+  static const dialogTopTitle = TextStyle(
+    fontSize: Spacings.xL,
+    fontWeight: FontWeight.bold,
+    fontFamily: FontFamily.workSans,
+  );
+  static const dialogTitle = TextStyle(
+    fontSize: Spacings.L,
+    fontFamily: FontFamily.workSans,
+  );
 }
