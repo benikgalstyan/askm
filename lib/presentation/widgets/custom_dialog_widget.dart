@@ -1,7 +1,6 @@
 import 'package:askm/core/context_extensions.dart';
 import 'package:askm/core/theme/palette/light_palette.dart';
 import 'package:askm/core/theme/text_styles.dart';
-import 'package:askm/generated/assets/fonts.gen.dart';
 import 'package:askm/presentation/tokens/spacing.dart';
 import 'package:askm/presentation/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
