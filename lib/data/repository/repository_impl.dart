@@ -67,4 +67,15 @@ class RepositoryImpl implements Repository {
 
     return SignInResult(user, error);
   }
+
+  @override
+  Future<void> signOut() async {
+    try {
+      await secureStorage.deleteAccessToken();
+      await localStorageService.clearUserInfo();
+      await firebaseAuth.signOut();
+    } catch (e) {
+      print('Error signing out: $e');
+    }
+  }
 }

@@ -5,4 +5,6 @@ abstract interface class Repository {
   Future<SignUpResult> registerUser(String email, String password);
 
   Future<SignInResult> signIn(String email, String password);
+
+  Future<void> signOut();
 }
