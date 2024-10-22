@@ -1,8 +1,11 @@
 import 'package:askm/core/context_extensions.dart';
+import 'package:askm/core/router/router.dart';
 import 'package:askm/core/theme/text_styles.dart';
 import 'package:askm/data/models/chat_session.dart';
 import 'package:askm/presentation/pages/main_screen/provider/chat_session_controller.dart';
+import 'package:askm/presentation/pages/sign_up_screen/provider/auth_controller.dart';
 import 'package:askm/presentation/tokens/spacing.dart';
+import 'package:askm/presentation/widgets/dialog_manager_utils.dart';
 import 'package:askm/presentation/widgets/history_app_bar.dart';
 import 'package:askm/presentation/widgets/session_container.dart';
 import 'package:flutter/material.dart';
@@ -14,59 +17,88 @@ class HistoryLayout extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    const iconSize = 32.0;
     final firestoreController =
         ref.watch(chatSessionControllerProvider.notifier);
+    const logoutIcon = Icon(Icons.logout, size: iconSize);
 
     return Scaffold(
       appBar: HistoryAppBarWidget(
         onHistoryCloseTap: () => context.r.maybePop(),
       ),
-      // TODO(Benik): rewrite to switch case
-      body: FutureBuilder(
-        future: firestoreController.loadChatSessions(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          } else if (snapshot.hasError) {
-            return Center(child: Text('Error: ${snapshot.error}'));
-          } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return const Center(child: Text('No chat sessions found.'));
-          } else {
-            final chatSessions = snapshot.data!;
-            chatSessions.sort((a, b) => b.createdAt.compareTo(a.createdAt));
-            final groupedSessions = _groupSessionsByTime(chatSessions);
-            return Padding(
-              padding: Spacings.paddingH16,
-              child: ListView.builder(
-                itemCount: groupedSessions.length,
-                itemBuilder: (context, index) {
-                  final dateGroup = groupedSessions[index];
-                  return Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: Spacings.paddingH16,
-                        child: Text(
-                          dateGroup['title']!,
-                          style: TextStyles.historyTitle,
-                        ),
-                      ),
-                      Spacings.spacer8,
-                      ...((dateGroup['sessions'] as List<ChatSession>).map(
-                        (session) => SessionsContainer(chatSession: session),
-                      )),
-                      if (index < groupedSessions.length - 1)
-                        const Padding(
-                          padding: Spacings.paddingH12,
-                          child: Divider(),
-                        ),
-                    ],
+      body: Column(
+        children: [
+          Expanded(
+            child: FutureBuilder(
+              future: firestoreController.loadChatSessions(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(child: CircularProgressIndicator());
+                } else if (snapshot.hasError) {
+                  return Center(child: Text('Error: ${snapshot.error}'));
+                } else if (snapshot.data!.isEmpty) {
+                  return Center(child: Text(context.s.noChatSessionsFound));
+                } else {
+                  final chatSessions = snapshot.data!;
+                  chatSessions
+                      .sort((a, b) => b.createdAt.compareTo(a.createdAt));
+                  final groupedSessions = _groupSessionsByTime(chatSessions);
+                  return Padding(
+                    padding: Spacings.paddingH16,
+                    child: ListView.builder(
+                      itemCount: groupedSessions.length,
+                      itemBuilder: (context, index) {
+                        final dateGroup = groupedSessions[index];
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: Spacings.paddingH16,
+                              child: Text(
+                                dateGroup['title']!,
+                                style: TextStyles.historyTitle,
+                              ),
+                            ),
+                            Spacings.spacer8,
+                            ...((dateGroup['sessions'] as List<ChatSession>)
+                                .map(
+                              (session) =>
+                                  SessionsContainer(chatSession: session),
+                            )),
+                            if (index < groupedSessions.length - 1)
+                              const Padding(
+                                padding: Spacings.paddingH12,
+                                child: Divider(),
+                              ),
+                          ],
+                        );
+                      },
+                    ),
                   );
-                },
-              ),
-            );
-          }
-        },
+                }
+              },
+            ),
+          ),
+          Padding(
+            padding: Spacings.padding16,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                IconButton(
+                  icon: logoutIcon,
+                  onPressed: () => AlertManagerUtils.showSignOutWarning(
+                    context,
+                    onCancel: () => context.r.maybePop(),
+                    onSubmit: () async {
+                      await ref.read(authControllerProvider.notifier).logout();
+                      await context.r.replaceAll([const SocialSignUpRoute()]);
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

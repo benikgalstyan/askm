@@ -4,7 +4,7 @@ import 'package:askm/presentation/tokens/spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-enum ButtonType { primary, secondary, social }
+enum ButtonType { primary, secondary, social, alert }
 
 class ASKMElevatedButton extends StatelessWidget {
   const ASKMElevatedButton({
@@ -54,6 +54,16 @@ class ASKMElevatedButton extends StatelessWidget {
         type: ButtonType.secondary,
       );
 
+  factory ASKMElevatedButton.alert({
+    required String text,
+    required VoidCallback onPressed,
+  }) =>
+      ASKMElevatedButton(
+        text: text,
+        onPressed: onPressed,
+        type: ButtonType.alert,
+      );
+
   final String text;
   final bool? isEnabled;
   final String? iconPath;
@@ -72,6 +82,7 @@ class ASKMElevatedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final buttonColor = switch (type) {
       ButtonType.social => LightPalette.whiteColor,
+      ButtonType.alert => LightPalette.primaryButtonColor,
       ButtonType.primary => LightPalette.primaryButtonColor,
       ButtonType.secondary => LightPalette.secondaryButtonColor,
       _ => LightPalette.whiteColor,
@@ -83,7 +94,10 @@ class ASKMElevatedButton extends StatelessWidget {
       ButtonType.secondary => LightPalette.whiteColor,
       _ => LightPalette.whiteColor,
     };
-
+    final buttonWidth = switch (type) {
+      ButtonType.alert => 120.0,
+      _ => defaultWidth,
+    };
     Widget maybeGetIcon(String? iconPath) {
       if (iconPath != null) {
         return SvgPicture.asset(iconPath);
@@ -109,11 +123,12 @@ class ASKMElevatedButton extends StatelessWidget {
 
     return SizedBox(
       height: defaultHeight,
-      width: defaultWidth,
+      width: buttonWidth,
       child: ElevatedButton(
         onPressed: _isButtonEnable,
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.resolveWith<Color?>(resolveButtonColor),
+          backgroundColor:
+              MaterialStateProperty.resolveWith<Color?>(resolveButtonColor),
           shape: MaterialStateProperty.all(
             const RoundedRectangleBorder(
               side: BorderSide.none,
