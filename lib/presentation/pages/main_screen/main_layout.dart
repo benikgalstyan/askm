@@ -1,4 +1,5 @@
 import 'package:askm/presentation/pages/main_screen/provider/chat_session_controller.dart';
+import 'package:askm/presentation/widgets/main_screen_shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:askm/core/context_extensions.dart';
 import 'package:askm/data/models/chat_session.dart';
@@ -22,34 +23,29 @@ class MainLayout extends ConsumerStatefulWidget {
 
 class _MainLayoutState extends ConsumerState<MainLayout>
     with SingleTickerProviderStateMixin {
-  late AnimationController animationController;
-  late Animation<double> _iconOpacityAnimation;
+  late final AnimationController animationController;
+  late final Animation<double> _iconOpacityAnimation;
 
+  bool isLoading = true;
+  String? currentSessionId;
   bool _hasResponse = false;
   final _focusNode = FocusNode();
+  static bool _hasShownShimmer = false;
   final _controller = TextEditingController();
   final List<Map<String, String>> messages = [];
   final ScrollController chatController = ScrollController();
-  String? currentSessionId;
 
   @override
   void initState() {
     super.initState();
-
-    animationController = AnimationController(
-      duration: const Duration(milliseconds: 300),
-      vsync: this,
-    );
-
-    _iconOpacityAnimation =
-        Tween<double>(begin: 1.0, end: 0.0).animate(animationController);
+    _setupAnimation();
+    _setupListeners();
 
     if (widget.chatSession != null) {
       _initializeSession(widget.chatSession!);
     }
 
-    _controller.addListener(_onInputChange);
-    _focusNode.addListener(_onFocusChange);
+    _startLoading();
   }
 
   @override
@@ -59,6 +55,90 @@ class _MainLayoutState extends ConsumerState<MainLayout>
     chatController.dispose();
     animationController.dispose();
     super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => GestureDetector(
+        onTap: _dismissKeyboard,
+        child: Scaffold(
+          resizeToAvoidBottomInset: true,
+          appBar: AppBarWidget(
+            onHistoryTap: () => context.r.pushNamed(HistoryScreen.nameRoute),
+            onBookmarkTap: _clearChatSession,
+          ),
+          body: Padding(
+            padding: Spacings.paddingH16,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                if (isLoading)
+                  MainScreenShimmer()
+                else ...[
+                  if (!_hasResponse) ...[
+                    AnimatedHeaderWidget(
+                      controller: animationController,
+                      iconOpacityAnimation: _iconOpacityAnimation,
+                    ),
+                    ActionWall(
+                      controller: animationController,
+                      iconOpacityAnimation: _iconOpacityAnimation,
+                      onWriteTap: () {
+                        // TODO(benik): implement on write tap
+                      },
+                      onTellMeTap: () {},
+                      onHelpMePickTap: () {},
+                      onRecommendADishTap: () {},
+                    ),
+                  ],
+                  Spacings.spacer12,
+                  if (_hasResponse)
+                    ChatWidget(
+                      messages: messages,
+                      chatController: chatController,
+                      onRefreshTap: () {
+                        // TODO(benik): implement refresh logic
+                      },
+                    ),
+                ],
+                MainInputField(
+                  controller: _controller,
+                  iconOpacityAnimation: _iconOpacityAnimation,
+                  onMicTap: () {
+                    // TODO(benik): implement on mic logic
+                  },
+                  onSendTap: _sendMessage,
+                  onFocus: _scrollToBottom,
+                ),
+                Spacings.spacer12,
+              ],
+            ),
+          ),
+        ),
+      );
+
+  void _setupAnimation() {
+    animationController = AnimationController(
+      duration: const Duration(milliseconds: 300),
+      vsync: this,
+    );
+    _iconOpacityAnimation =
+        Tween<double>(begin: 1.0, end: 0.0).animate(animationController);
+  }
+
+  void _setupListeners() {
+    _controller.addListener(_onInputChange);
+    _focusNode.addListener(() {
+      if (_focusNode.hasFocus) _scrollToBottom();
+    });
+  }
+
+  // TODO(benik): rewrite later
+  Future<void> _startLoading() async {
+    if (!_hasShownShimmer) {
+      await Future.delayed(const Duration(seconds: 2));
+      _hasShownShimmer = true;
+    }
+    setState(() => isLoading = false);
   }
 
   void _clearChatSession() {
@@ -72,9 +152,11 @@ class _MainLayoutState extends ConsumerState<MainLayout>
   }
 
   void _initializeSession(ChatSession session) {
-    currentSessionId = session.id;
-    messages.addAll(session.messages);
-    _hasResponse = true;
+    setState(() {
+      currentSessionId = session.id;
+      messages.addAll(session.messages);
+      _hasResponse = true;
+    });
   }
 
   void _onInputChange() {
@@ -82,12 +164,6 @@ class _MainLayoutState extends ConsumerState<MainLayout>
       animationController.reverse();
     } else {
       animationController.forward();
-    }
-  }
-
-  void _onFocusChange() {
-    if (_focusNode.hasFocus) {
-      WidgetsBinding.instance.addPostFrameCallback((_) => _scrollToBottom());
     }
   }
 
@@ -115,8 +191,7 @@ class _MainLayoutState extends ConsumerState<MainLayout>
         _controller.clear();
         animationController.reverse();
       });
-
-      WidgetsBinding.instance.addPostFrameCallback((_) => _scrollToBottom());
+      _scrollToBottom();
       _saveChatSession();
     }
   }
@@ -132,60 +207,4 @@ class _MainLayoutState extends ConsumerState<MainLayout>
   }
 
   void _dismissKeyboard() => FocusScope.of(context).unfocus();
-
-  @override
-  Widget build(BuildContext context) => GestureDetector(
-        onTap: _dismissKeyboard,
-        child: Scaffold(
-          resizeToAvoidBottomInset: true,
-          appBar: AppBarWidget(
-            onHistoryTap: () => context.r.pushNamed(HistoryScreen.nameRoute),
-            onBookmarkTap: _clearChatSession,
-          ),
-          body: Padding(
-            padding: Spacings.paddingH16,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                if (!_hasResponse) ...[
-                  AnimatedHeaderWidget(
-                    controller: animationController,
-                    iconOpacityAnimation: _iconOpacityAnimation,
-                  ),
-                  ActionWall(
-                    controller: animationController,
-                    iconOpacityAnimation: _iconOpacityAnimation,
-                    onWriteTap: () {
-                      // TODO(Benik): implement action wall logic
-                    },
-                    onTellMeTap: () {},
-                    onHelpMePickTap: () {},
-                    onRecommendADishTap: () {},
-                  ),
-                ],
-                Spacings.spacer12,
-                if (_hasResponse)
-                  ChatWidget(
-                    messages: messages,
-                    chatController: chatController,
-                    onRefreshTap: () {
-                      // TODO(Benik): Implement refresh logic
-                    },
-                  ),
-                MainInputField(
-                  controller: _controller,
-                  iconOpacityAnimation: _iconOpacityAnimation,
-                  onMicTap: () {
-                    // TODO(Benik): implement on mic logic
-                  },
-                  onSendTap: _sendMessage,
-                  onFocus: () => WidgetsBinding.instance
-                      .addPostFrameCallback((_) => _scrollToBottom()),
-                ),
-                Spacings.spacer12,
-              ],
-            ),
-          ),
-        ),
-      );
 }

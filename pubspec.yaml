@@ -59,6 +59,8 @@ dependencies:
   cloud_firestore: ^5.4.0
   # https://pub.dev/packages/riverpod_lint
   riverpod_lint: ^2.3.10
+  # https://pub.dev/packages/shimmer
+  shimmer: ^3.0.0
 
 dev_dependencies:
   flutter_test:
