@@ -29,8 +29,8 @@ class _MainLayoutState extends ConsumerState<MainLayout>
   bool isLoading = true;
   String? currentSessionId;
   bool _hasResponse = false;
-
   final _focusNode = FocusNode();
+  static bool _hasShownShimmer = false;
   final _controller = TextEditingController();
   final List<Map<String, String>> messages = [];
   final ScrollController chatController = ScrollController();
@@ -134,7 +134,10 @@ class _MainLayoutState extends ConsumerState<MainLayout>
 
   // TODO(benik): rewrite later
   Future<void> _startLoading() async {
-    await Future.delayed(const Duration(seconds: 2));
+    if (!_hasShownShimmer) {
+      await Future.delayed(const Duration(seconds: 2));
+      _hasShownShimmer = true;
+    }
     setState(() => isLoading = false);
   }
 
