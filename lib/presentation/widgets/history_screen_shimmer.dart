@@ -14,15 +14,13 @@ class HistoryScreenShimmer extends StatelessWidget {
   final _borderRadius = BorderRadius.circular(10.0);
 
   @override
-  Widget build(BuildContext context) => Expanded(
-        child: Padding(
-          padding: Spacings.paddingH16,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: _buildShimmerWidgets(),
-          ),
-        ),
-      );
+  Widget build(BuildContext context) => Padding(
+    padding: Spacings.paddingH16,
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: _buildShimmerWidgets(),
+    ),
+  );
 
   List<Widget> _buildShimmerWidgets() {
     final List<Widget> shimmerWidgets = [];
