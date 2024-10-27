@@ -6,14 +6,9 @@ import 'package:askm/service_locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-class AskmApp extends StatefulWidget {
-  const AskmApp({super.key});
+class AskmApp extends StatelessWidget {
+  AskmApp({super.key});
 
-  @override
-  State<AskmApp> createState() => _AskmAppState();
-}
-
-class _AskmAppState extends State<AskmApp> {
   final _router = AppRouter(secureStorageService: getSecureStorage);
 
   @override

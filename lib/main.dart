@@ -10,5 +10,6 @@ Future<void> main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   setupServicesLocator();
   runApp(
-    const ProviderScope(child: AskmApp()),
-  );}
+    ProviderScope(child: AskmApp()),
+  );
+}
