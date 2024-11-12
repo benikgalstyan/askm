@@ -51,6 +51,7 @@ class RepositoryImpl implements Repository {
   @override
   Future<SignInResult> signIn(String email, String password) async {
     SignUpException? error;
+    String? accessToken;
     auth.UserCredential? credential;
 
     try {
@@ -58,6 +59,11 @@ class RepositoryImpl implements Repository {
         email: email,
         password: password,
       );
+      accessToken = await credential.user?.getIdToken();
+      if (accessToken != null) {
+        await secureStorage.saveAccessToken(accessToken);
+      }
+      await localStorageService.saveUserInfo(email);
     } on auth.FirebaseAuthException catch (e) {
       error = SignUpException.fromFirebaseAuth(e);
     }
@@ -65,7 +71,7 @@ class RepositoryImpl implements Repository {
     User? user;
     if (credential != null) user = User(email);
 
-    return SignInResult(user, error);
+    return SignInResult(user, error, accessToken);
   }
 
   @override
