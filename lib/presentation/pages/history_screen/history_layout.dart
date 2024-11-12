@@ -135,7 +135,7 @@ class _HistoryLayoutState extends ConsumerState<HistoryLayout> {
   // TODO(benik): rewrite later
   Future<void> _startLoading() async {
     if (!_hasShownShimmer) {
-      await Future.delayed(const Duration(seconds: 2));
+      await Future.delayed(const Duration(seconds: 1));
       _hasShownShimmer = true;
     }
     setState(() => isLoading = false);
