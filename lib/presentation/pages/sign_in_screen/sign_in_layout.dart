@@ -15,6 +15,26 @@ class SignInLayout extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final isButtonEnabled = ref.watch(isSignUpButtonEnabledProvider);
 
+    Future<void> handleSignIn(String email, String password) async {
+      if (!isButtonEnabled) return;
+
+      final navigator = context.r;
+      final success = await ref
+          .read(authControllerProvider.notifier)
+          .signIn(email, password);
+
+      if (!context.mounted) return;
+
+      if (success) {
+        await navigator.replaceAll([MainRoute()]);
+      } else {
+        // TODO(Benik): Show error dialog/snackbar instead of just Text widget
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Sign in failed. Please try again.')),
+        );
+      }
+    }
+
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
@@ -29,23 +49,7 @@ class SignInLayout extends ConsumerWidget {
               Spacings.spacer32,
               SignUpForm(
                 isSignUp: false,
-                onSignInButtonPressed: (String email, String password) async {
-                  if (isButtonEnabled) {
-                    final navigator = context.r;
-                    final success = await ref
-                        .read(authControllerProvider.notifier)
-                        .signIn(email, password);
-
-                    if (!context.mounted) return;
-
-                    if (success) {
-                      await navigator.replaceAll([MainRoute()]);
-                    } else {
-                      // TODO(Benik): Implement error screen
-                      const Text('Error');
-                    }
-                  }
-                },
+                onSignInButtonPressed: handleSignIn,
               ),
               Spacings.spacer48,
             ],
