@@ -31,7 +31,8 @@ class _HistoryLayoutState extends ConsumerState<HistoryLayout> {
   @override
   void initState() {
     super.initState();
-    _chatSessionsFuture = ref.read(chatSessionControllerProvider.notifier).loadChatSessions();
+    _chatSessionsFuture =
+        ref.read(chatSessionControllerProvider.notifier).loadChatSessions();
     _initializeLoading();
   }
 
@@ -44,13 +45,17 @@ class _HistoryLayoutState extends ConsumerState<HistoryLayout> {
   }
 
   Future<void> _handleLogout(BuildContext context) async {
+    final navigator = context.r;
     await ref.read(authControllerProvider.notifier).logout();
-    if (mounted) await context.r.replaceAll([const SocialSignUpRoute()]);
+    if (!mounted) return;
+    await navigator.replaceAll([const SocialSignUpRoute()]);
   }
 
   Widget _buildSessionList(List<ChatSession> sessions) {
-    final groupedSessions = _groupSessionsByTime(sessions..sort((a, b) => b.createdAt.compareTo(a.createdAt)));
-    
+    final groupedSessions = _groupSessionsByTime(
+      sessions..sort((a, b) => b.createdAt.compareTo(a.createdAt)),
+    );
+
     return Padding(
       padding: Spacings.paddingH16,
       child: ListView.builder(
@@ -62,7 +67,8 @@ class _HistoryLayoutState extends ConsumerState<HistoryLayout> {
             children: [
               Padding(
                 padding: Spacings.paddingH16,
-                child: Text(dateGroup['title']!, style: TextStyles.historyTitle),
+                child:
+                    Text(dateGroup['title']!, style: TextStyles.historyTitle),
               ),
               Spacings.spacer8,
               ...(dateGroup['sessions'] as List<ChatSession>)
@@ -81,28 +87,36 @@ class _HistoryLayoutState extends ConsumerState<HistoryLayout> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: HistoryAppBarWidget(onHistoryCloseTap: () => context.r.maybePop()),
+        appBar:
+            HistoryAppBarWidget(onHistoryCloseTap: () => context.r.maybePop()),
         body: _isLoading
-            ? const HistoryScreenShimmer()
+            ? HistoryScreenShimmer()
             : Column(
                 children: [
                   Expanded(
                     child: FutureBuilder<List<ChatSession>>(
                       future: _chatSessionsFuture,
                       builder: (context, snapshot) {
-                        if (snapshot.connectionState == ConnectionState.waiting) {
-                          return const Center(child: CircularProgressIndicator());
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return const Center(
+                            child: CircularProgressIndicator(),
+                          );
                         }
-                        
+
                         if (snapshot.hasError) {
-                          return Center(child: Text('Error: ${snapshot.error}'));
+                          return Center(
+                            child: Text('Error: ${snapshot.error}'),
+                          );
                         }
-                        
+
                         final sessions = snapshot.data;
                         if (sessions == null || sessions.isEmpty) {
-                          return Center(child: Text(context.s.noChatSessionsFound));
+                          return Center(
+                            child: Text(context.s.noChatSessionsFound),
+                          );
                         }
-                        
+
                         return _buildSessionList(sessions);
                       },
                     ),
@@ -129,7 +143,8 @@ class _HistoryLayoutState extends ConsumerState<HistoryLayout> {
 
   List<Map<String, dynamic>> _groupSessionsByTime(List<ChatSession> sessions) {
     final currentTime = DateTime.now();
-    final today = DateTime(currentTime.year, currentTime.month, currentTime.day);
+    final today =
+        DateTime(currentTime.year, currentTime.month, currentTime.day);
     final groups = {
       'Today': <ChatSession>[],
       'Yesterday': <ChatSession>[],

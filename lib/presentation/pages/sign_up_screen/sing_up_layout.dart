@@ -31,12 +31,15 @@ class SignUpLayout extends ConsumerWidget {
                 isSignUp: true,
                 onSignUpButtonPressed: (String email, String password) async {
                   if (isButtonEnabled) {
+                    final navigator = context.r;
                     final success = await ref
                         .read(authControllerProvider.notifier)
                         .signUp(email, password);
 
+                    if (!context.mounted) return;
+
                     if (success) {
-                      await context.r.replaceAll([MainRoute()]);
+                      await navigator.replaceAll([MainRoute()]);
                     } else {
                       // TODO(Benik): Implement error screen
                       const Text('Error');
